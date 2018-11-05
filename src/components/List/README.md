@@ -1,5 +1,7 @@
+## How to use
+
 React component example:
 
-```js
+```js {"props": {"test": "prova props"}}
 <List>Push Me</List>
 ```
