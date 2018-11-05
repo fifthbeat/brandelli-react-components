@@ -29,5 +29,5 @@ module.exports = {
   propsParser: require('react-docgen-typescript').parse,
   title: 'Brandelli',
   exampleMode: 'expand',
-  usageMode: "expand"
+  usageMode: 'expand',
 };
