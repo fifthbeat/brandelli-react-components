@@ -1,6 +1,7 @@
 /* eslint strict: ["off"] */
 
 'use strict';
+const componentsMapper = require('../utils/components-mapper');
 
 module.exports = {
   description: 'Add an unconnected component',
@@ -17,7 +18,10 @@ module.exports = {
       name: 'name',
       message: 'What should it be called?',
       default: 'Button',
-      validate: value => true,
+      validate: value => {
+        componentsMapper(value);
+        return true;
+      },
     },
   ],
   actions: data => {
