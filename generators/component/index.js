@@ -2,8 +2,6 @@
 
 'use strict';
 
-const componentExists = require('../utils/componentExists');
-
 module.exports = {
   description: 'Add an unconnected component',
   prompts: [
@@ -19,12 +17,7 @@ module.exports = {
       name: 'name',
       message: 'What should it be called?',
       default: 'Button',
-      validate: value => {
-        if (/.+/.test(value)) {
-          return componentExists(value) ? 'A component or container with this name already exists' : true;
-        }
-        return 'The name is required';
-      },
+      validate: value => true,
     },
   ],
   actions: data => {
@@ -44,7 +37,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../src/components/{{properCase name}}/index.tsx',
+        path: '../src/components/{{properCase name}}/{{properCase name}}.tsx',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
@@ -58,6 +51,12 @@ module.exports = {
         type: 'add',
         path: '../src/components/{{properCase name}}/README.md',
         templateFile: './component/README.md.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../src/components/{{properCase name}}/index.tsx',
+        templateFile: './component/index.tsx.hbs',
         abortOnFail: true,
       },
     ];

@@ -3,7 +3,7 @@ import {Wrap} from './styles';
 
 interface Props {}
 
-class {{ properCase name }} extends {{{ type }}}<Props, {}>{
+class Button extends React.Component<Props, {}>{
 
   constructor(props: Props) {
   super(props);
@@ -13,10 +13,10 @@ class {{ properCase name }} extends {{{ type }}}<Props, {}>{
   render() {
   return (
   <Wrap>
-    This is {{ properCase name }} component
+    This is Button component
   </Wrap>
   );
   }
   }
 
-  export default {{ properCase name }};
+  export default Button;

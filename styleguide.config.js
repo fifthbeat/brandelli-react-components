@@ -1,4 +1,9 @@
+const fs = require('fs');
 const path = require('path');
+
+const brc = name => path.resolve(__dirname, `src/components/${name}/index.tsx`);
+
+const brcComponents = fs.readdirSync(path.resolve(__dirname, 'src/components')).map(brc);
 
 module.exports = {
   components: 'src/components/**/index.tsx',
@@ -30,4 +35,11 @@ module.exports = {
   title: 'Brandelli',
   exampleMode: 'expand',
   usageMode: 'expand',
+  pagePerSection: true,
+  sections: [
+    {
+      name: 'Components',
+      components: () => brcComponents,
+    },
+  ],
 };
