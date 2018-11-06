@@ -8,14 +8,15 @@ interface IListWrap {
   border?: boolean;
   direction?: string;
   size?: string;
-  maxHeight?: string;
+  listHeight?: string;
+  contentPosition?: string;
 }
 
 export const IListWrap = styled.ul`
   display: flex;
   flex-direction: ${(props: IListWrap) => props.direction};
   width: calc(100% - 32px);
-  max-height: ${(props: IListWrap) => props.maxHeight};
+  height: ${(props: IListWrap) => props.listHeight};
   padding: 0;
   border-radius: 4px;
   overflow-y: scroll;
@@ -31,14 +32,34 @@ export const IListWrap = styled.ul`
 
   & > li {
     list-style-type: none;
-    padding: ${(props: IListWrap) => {
+    justify-content: ${(props: IListWrap) => {
+      switch (props.contentPosition) {
+        case 'end':
+          return 'flex-end';
+        case 'center':
+          return 'center';
+        default:
+          return 'flex-start';
+      }
+    }};
+
+    ${(props: IListWrap) => {
       switch (props.size) {
         case 'small':
-          return '4px 16px';
+          return css`
+            padding: 4px 16px;
+            min-height: 40px;
+          `;
         case 'large':
-          return '16px 16px';
+          return css`
+            padding: 16px 16px;
+            min-height: 80px;
+          `;
         default:
-          return '8px 16px';
+          return css`
+            padding: 16px 16px;
+            min-height: 60px;
+          `;
       }
     }};
   }
@@ -48,16 +69,13 @@ export const ScrollArea = styled.div`
   height: 100%;
 `;
 
-interface IItemWrap {
-  height?: string;
-}
-
 export const IItemWrap = styled.li`
   list-style-type: none;
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: ${(props: IItemWrap) => props.height};
+  align-items: center;
+  box-sizing: border-box;
   border-bottom: 1px solid lightgrey;
   :last-of-type {
     border: none;

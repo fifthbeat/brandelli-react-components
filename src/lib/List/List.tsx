@@ -7,12 +7,14 @@ export interface IProps {
   border?: boolean;
   /** define list items direction */
   direction?: 'row' | 'column';
-  /** define size of the list */
+  /** define size of the list item */
   size?: 'small' | 'large';
-  /** define min height of an element in the list */
-  maxHeight?: string;
+  /** define height of the list */
+  listHeight?: string;
   /** component inside the list */
   content: object[];
+  /** define the item's content position */
+  contentPosition?: 'end' | 'center';
 }
 
 class List extends React.Component<IProps, {}> {
@@ -25,7 +27,7 @@ class List extends React.Component<IProps, {}> {
     if (data && data.length > 0) {
       return data.map(d => <Item key={d.id}>{d.label}</Item>);
     }
-    return <div>Ciao</div>;
+    return <li>Ciao sono una lista vuota</li>;
   };
 
   public render() {
