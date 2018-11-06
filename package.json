@@ -1,13 +1,35 @@
 {
   "name": "@fifthbeat/brandelli-react-components",
-  "description": "react-components-library",
+  "description": "react components library in typescript",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "keywords": ["react", "components", "library", "typescript", "modular", "UI", "simple"],
+  "repository": {
+    "type": "git",
+    "url": "https://wanbinkimoon@bitbucket.org/fifthbeat/brandelli-react-components.git"
+  },
+  "author": "fifthbeat",
+  "contributors": [{
+      "name": "Nicola Bertelloni",
+      "email": "nicola.bertelloni@gmail.com",
+      "url": "https://github.com/wanbinkimoonf"
+    },
+    {
+      "name": "Mattia Magi",
+      "email": "mattia.magi91@gmail.com",
+      "url": "https://github.com/megio"
+    }
+  ],
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "start:std": "react-scripts-ts start",
     "build:std": "react-scripts-ts build",
     "start": "styleguidist server",
-    "build": "styleguidist build",
+    "build": "rm -rf dist && NODE_ENV=production babel tmp --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ && rm -rf tmp",
+    "prebuild": "rm -rf tmp && tsc --jsx react --outDir ./tmp ./src/index.tsx",
     "generate": "plop --plopfile generators/index.js",
     "eject": "react-scripts-ts eject"
   },
@@ -25,6 +47,7 @@
     "@types/node": "^10.12.2",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "babel-cli": "^6.26.0",
     "plop": "^2.1.0",
     "react-styleguidist": "^8.0.3",
     "typescript": "^3.1.6"

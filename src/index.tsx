@@ -1,2 +1,2 @@
-import List from "./components/List";
+import List from "./lib/List";
 export { List };
