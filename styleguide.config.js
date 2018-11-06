@@ -7,6 +7,7 @@ const brcComponents = fs.readdirSync(path.resolve(__dirname, 'src/lib')).map(brc
 
 module.exports = {
   components: 'src/lib/**/index.tsx',
+  styleguideDir: 'docs',
   styles: {
     body: {
       fontFamily: '"Source Sans Pro", "Roboto"',
