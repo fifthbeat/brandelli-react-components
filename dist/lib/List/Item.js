@@ -25,26 +25,17 @@ var __assign = (this && this.__assign) || function () {
 };
 exports.__esModule = true;
 var React = require("react");
-var Item_1 = require("./Item");
 var styles_1 = require("./styles");
-var List = /** @class */ (function (_super) {
-    __extends(List, _super);
-    function List(props) {
+var Item = /** @class */ (function (_super) {
+    __extends(Item, _super);
+    function Item(props) {
         var _this = _super.call(this, props) || this;
-        _this.renderItems = function (data) {
-            if (data && data.length > 0) {
-                return data.map(function (d) { return React.createElement(Item_1["default"], { key: d.id }, d.label); });
-            }
-            return React.createElement("div", null, "Ciao");
-        };
         _this.state = {};
         return _this;
     }
-    List.prototype.render = function () {
-        var content = this.props.content;
-        return (React.createElement(styles_1.ScrollArea, null,
-            React.createElement(styles_1.IListWrap, __assign({}, this.props), this.renderItems(content))));
+    Item.prototype.render = function () {
+        return React.createElement(styles_1.IItemWrap, __assign({}, this.props), this.props.children);
     };
-    return List;
+    return Item;
 }(React.Component));
-exports["default"] = List;
+exports["default"] = Item;
