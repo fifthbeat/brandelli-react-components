@@ -37,7 +37,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build:static": "styleguidist server",
+    "build:static": "styleguidist build",
     "start": "styleguidist server",
     "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
     "prepublish": "npm run build",
