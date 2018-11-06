@@ -35,7 +35,7 @@ var List = /** @class */ (function (_super) {
             if (data && data.length > 0) {
                 return data.map(function (d) { return React.createElement(Item_1["default"], { key: d.id }, d.label); });
             }
-            return React.createElement("div", null, "Ciao");
+            return React.createElement("li", null, "Ciao sono una lista vuota");
         };
         _this.state = {};
         return _this;
