@@ -14,11 +14,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://wanbinkimoon@bitbucket.org/fifthbeat/brandelli-react-components.git"
+    "url": "https://github.com/fifthbeat/brandelli-react.components"
   },
   "author": "fifthbeat",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Nicola Bertelloni",
       "email": "nicola.bertelloni@gmail.com",
       "url": "https://github.com/wanbinkimoonf"
@@ -38,8 +37,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "start:std": "react-scripts-ts start",
-    "build:std": "react-scripts-ts build",
+    "build:static": "styleguidist server",
     "start": "styleguidist server",
     "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
     "prepublish": "npm run build",
