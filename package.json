@@ -1,15 +1,24 @@
 {
   "name": "brandelli",
   "description": "react components library in typescript",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "license": "MIT",
-  "keywords": ["react", "components", "library", "typescript", "modular", "UI", "simple"],
+  "keywords": [
+    "react",
+    "components",
+    "library",
+    "typescript",
+    "modular",
+    "UI",
+    "simple"
+  ],
   "repository": {
     "type": "git",
     "url": "https://wanbinkimoon@bitbucket.org/fifthbeat/brandelli-react-components.git"
   },
   "author": "fifthbeat",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Nicola Bertelloni",
       "email": "nicola.bertelloni@gmail.com",
       "url": "https://github.com/wanbinkimoonf"
@@ -23,7 +32,11 @@
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "start:std": "react-scripts-ts start",
     "build:std": "react-scripts-ts build",
