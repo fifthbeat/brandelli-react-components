@@ -1,12 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-const brc = name => path.resolve(__dirname, `src/components/${name}/index.tsx`);
+const brc = name => path.resolve(__dirname, `src/lib/${name}/index.tsx`);
 
-const brcComponents = fs.readdirSync(path.resolve(__dirname, 'src/components')).map(brc);
+const brcComponents = fs
+  .readdirSync(path.resolve(__dirname, 'src/lib'))
+  .map(brc);
 
 module.exports = {
-  components: 'src/components/**/index.tsx',
+  components: 'src/lib/**/index.tsx',
   // require: [
   //   // "global" setup + sass imports
   //   path.resolve(__dirname, 'styleguide/setup.ts'),

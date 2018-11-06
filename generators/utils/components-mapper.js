@@ -7,7 +7,7 @@ module.exports = componentName => {
     if (err) {
       throw err;
     }
-    const componentImport = `\nimport ${componentName} from './components/${componentName}';`;
+    const componentImport = `\nimport ${componentName} from './lib/${componentName}';`;
     const componentExport = `\nexport { ${componentName} }`;
     const indexFile = data + componentImport + componentExport;
     fs.open(indexPath, 'w', (err, fd) => {
