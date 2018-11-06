@@ -3,7 +3,7 @@
 ![](http://images.treccani.it/enc/media/share/images/orig/system/galleries/Iconografico/Esercizio/146160.gif)
 
 **Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about)
-This is a react componet library that works both in typescript and regula JSX.
+This is a react componet library that works both in typescript and regular JSX.
 
 # Principles
 
@@ -40,3 +40,26 @@ yarn start
 # or
 npm run start
 ```
+
+# Styles
+
+Styling is powered by styling components allowing you easy customization.
+
+Example:
+
+```javascript
+import styled from 'styled-components';
+import {Button} from 'brandelli';
+
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`;
+```
+
+# TODO
+
+Stuff we have to implent to pimp this butterfly
+
+- [ ] Default theming
+- [ ] Theme ovveriding options

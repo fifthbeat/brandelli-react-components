@@ -37,10 +37,11 @@
     "LICENSE"
   ],
   "scripts": {
-    "build:static": "styleguidist server",
+    "build:static": "styleguidist build",
     "start": "styleguidist server",
     "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm run github",
+    "github": "npm run build && npm run build:static && git push git@github.com:fifthbeat/brandelli-react-components.git",
     "generate": "plop --plopfile generators/index.js",
     "eject": "react-scripts-ts eject"
   },

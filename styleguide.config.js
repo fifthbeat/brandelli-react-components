@@ -3,16 +3,15 @@ const path = require('path');
 
 const brc = name => path.resolve(__dirname, `src/lib/${name}/index.tsx`);
 
-const brcComponents = fs
-  .readdirSync(path.resolve(__dirname, 'src/lib'))
-  .map(brc);
+const brcComponents = fs.readdirSync(path.resolve(__dirname, 'src/lib')).map(brc);
 
 module.exports = {
   components: 'src/lib/**/index.tsx',
-  // require: [
-  //   // "global" setup + sass imports
-  //   path.resolve(__dirname, 'styleguide/setup.ts'),
-  // ],
+  styles: {
+    body: {
+      fontFamily: '"Source Sans Pro", "Roboto"',
+    },
+  },
   theme: {
     color: {
       link: 'DEEPSKYBLUE',
@@ -21,7 +20,10 @@ module.exports = {
     },
     fontFamily: {
       base: '"Source Sans Pro", "Roboto"',
+      monospace: ['Consolas', '"Liberation Mono"', 'Menlo', 'monospace'],
     },
+    sidebarWidth: 320,
+    buttonTextTransform: 'uppercase',
     fontSize: {
       base: 16,
       h1: 48,
