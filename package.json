@@ -1,7 +1,7 @@
 {
-  "name": "@fifthbeat/brandelli-react-components",
+  "name": "brandelli",
   "description": "react components library in typescript",
-  "version": "0.1.0",
+  "version": "0.1.10",
   "license": "MIT",
   "keywords": ["react", "components", "library", "typescript", "modular", "UI", "simple"],
   "repository": {
@@ -28,8 +28,8 @@
     "start:std": "react-scripts-ts start",
     "build:std": "react-scripts-ts build",
     "start": "styleguidist server",
-    "build": "rm -rf dist && NODE_ENV=production babel tmp --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ && rm -rf tmp",
-    "prebuild": "rm -rf tmp && tsc --jsx react --outDir ./tmp ./src/index.tsx",
+    "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
+    "prepublish": "npm run build",
     "generate": "plop --plopfile generators/index.js",
     "eject": "react-scripts-ts eject"
   },
