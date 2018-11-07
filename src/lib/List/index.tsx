@@ -1,9 +1,9 @@
 import * as React from "react";
 import Item from "./Item";
-import { Wrap } from "./styles";
+import { List } from "./styles";
 
-export interface IProps {
-  /** Data on which the list will iterate*/
+export interface ListProps {
+  /** Data on which the list will iterate. Default content should be: `[{id: string, label: string}]`*/
   content: any;
   /** Add a border to the list  */
   border?: boolean;
@@ -19,7 +19,7 @@ export interface IProps {
   renderItem?: any;
 }
 
-export default class List extends React.Component<IProps, {}> {
+export default class extends React.Component<ListProps, {}> {
   public static Item: typeof Item = Item;
 
   public renderDefalut = (content: any) =>
@@ -28,13 +28,13 @@ export default class List extends React.Component<IProps, {}> {
   public render() {
     const { content, renderItem } = this.props;
     return (
-      <Wrap {...this.props}>
+      <List {...this.props}>
         {renderItem ? (
           this.renderItem(content, renderItem)
         ) : (
           <ul>{this.renderDefalut(content)}</ul>
         )}
-      </Wrap>
+      </List>
     );
   }
 

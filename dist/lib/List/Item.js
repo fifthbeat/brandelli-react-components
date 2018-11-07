@@ -22,7 +22,8 @@ var Item = /** @class */ (function (_super) {
         return _this;
     }
     Item.prototype.render = function () {
-        return React.createElement("li", null, this.props.children);
+        var content = this.props.content;
+        return React.createElement("li", { key: content.id }, content.label);
     };
     return Item;
 }(React.Component));

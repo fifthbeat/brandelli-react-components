@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 // import breakpoints from '../../constants/breakpoints'
 // import fonts from '../../constants/fonts'
 
-interface IWrap {
+interface ListProps {
   border?: boolean;
   direction?: string;
   size?: string;
@@ -12,7 +12,7 @@ interface IWrap {
   contentPosition?: string;
 }
 
-export const Wrap = styled.div`
+export const List = styled.div`
   height: 100%;
   box-sizing: border-box;
 
@@ -22,10 +22,10 @@ export const Wrap = styled.div`
 
   & > ul {
     display: flex;
-    flex-direction: ${(props: IWrap) =>
+    flex-direction: ${(props: ListProps) =>
       props.direction ? props.direction : "column"};
     width: calc(100% - 32px);
-    height: ${(props: IWrap) => props.listHeight};
+    height: ${(props: ListProps) => props.listHeight};
     padding: 0;
     border-radius: 4px;
     overflow-y: scroll;
@@ -34,50 +34,50 @@ export const Wrap = styled.div`
       display: none;
     }
 
-  ${(props: IWrap) =>
-    props.border &&
-    css`
-      border: 1px solid lightgrey;
-    `};
+    ${(props: ListProps) =>
+      props.border &&
+      css`
+        border: 1px solid lightgrey;
+      `};
 
-  & > li {
-    display: flex;
-    align-items: center;
     list-style-type: none;
-    border-bottom: 1px solid lightgrey;
-    padding: 0 16px;
-    line-height: 1.2;
+    & > li {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid lightgrey;
+      padding: 0 16px;
+      line-height: 1.2;
 
-    &:last-of-type {
-      border-bottom: none;
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      justify-content: ${(props: ListProps) => {
+        switch (props.contentPosition) {
+          case "end":
+            return "flex-end";
+          case "center":
+            return "center";
+          default:
+            return "flex-start";
+        }
+      }};
+
+      min-height: ${(props: ListProps) => {
+        switch (props.size) {
+          case "small":
+            return "32px";
+          case "large":
+            return "64px";
+          default:
+            return "40px";
+        }
+      }};
     }
-
-    justify-content: ${(props: IWrap) => {
-      switch (props.contentPosition) {
-        case "end":
-          return "flex-end";
-        case "center":
-          return "center";
-        default:
-          return "flex-start";
-      }
-    }};
-   
-    min-height: ${(props: IWrap) => {
-      switch (props.size) {
-        case "small":
-          return "32px";
-        case "large":
-          return "64px";
-        default:
-          return "40px";
-      }
-    }};
-   
   }
 `;
 
-export const IItemWrap = styled.li`
+export const Item = styled.li`
   list-style-type: none;
   display: flex;
   flex-direction: row;

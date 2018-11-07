@@ -7,13 +7,6 @@ module.exports = {
   description: 'Add an unconnected component',
   prompts: [
     {
-      type: 'list',
-      name: 'type',
-      message: 'Select the type of component',
-      default: 'React.Component',
-      choices: () => ['Stateless Function', 'React.Component'],
-    },
-    {
       type: 'input',
       name: 'name',
       message: 'What should it be called?',
@@ -25,24 +18,11 @@ module.exports = {
     },
   ],
   actions: data => {
-    // Generate index.js and index.test.js
-    let componentTemplate;
-
-    switch (data.type) {
-      case 'Stateless Function': {
-        componentTemplate = './component/stateless.ts.hbs';
-        break;
-      }
-      default: {
-        componentTemplate = './component/class.ts.hbs';
-      }
-    }
-
     const actions = [
       {
         type: 'add',
         path: '../src/lib/{{properCase name}}/index.tsx',
-        templateFile: componentTemplate,
+        templateFile: './component/class.ts.hbs',
         abortOnFail: true,
       },
       {
