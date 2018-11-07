@@ -1,11 +1,15 @@
-# Brandelli
+<p align="center">
+    <img width="200" src="http://images.treccani.it/enc/media/share/images/orig/system/galleries/Iconografico/Esercizio/146160.gif">
+</p>
 
-![](http://images.treccani.it/enc/media/share/images/orig/system/galleries/Iconografico/Esercizio/146160.gif)
+<h1 align="center">Brandelli</h1>
+<div align="center">
+React componet library for higly customizables projects.
+</div>
 
-**Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about).  
-This is a react componet library that works both in typescript and regular JSX.
+**Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about).
 
-# Principles
+## 📕 Principles
 
 We structured and pampered every component following these simple principles:
 
@@ -13,7 +17,7 @@ We structured and pampered every component following these simple principles:
 2. **Recycle** – try to code so you will have to write as less as possible in future
 3. **Separate** – try to identify and define each component function
 
-# Install
+## 💻 Install
 
 Add to your project with
 
@@ -23,25 +27,7 @@ yarn add brandelli
 npm install --save brandelli
 ```
 
-# How to
-
-As simple as
-
-```bash
-yarn
-# or
-npm install
-```
-
-and
-
-```bash
-yarn start
-# or
-npm run start
-```
-
-# Styles
+## 💅 Styles
 
 Styling is powered by styling components allowing you easy customization.
 
@@ -57,14 +43,14 @@ const TomatoButton = styled(Button)`
 `;
 ```
 
-# TODO
+## 🏗 TODO
 
 Stuff we have to implent to pimp this butterfly
 
 - [ ] Default theming
 - [ ] Theme ovveriding options
 
-# Libs we used as inspiration
+## ✨ Libs we used as inspiration
 
 - [gestalt](https://github.com/pinterest/gestalt)
 - [ant-design](https://github.com/ant-design/ant-design)

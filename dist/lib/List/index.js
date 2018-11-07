@@ -40,8 +40,12 @@ var default_1 = /** @class */ (function (_super) {
         return _this;
     }
     default_1.prototype.render = function () {
+        console.log(this.props);
         var _a = this.props, content = _a.content, renderItem = _a.renderItem;
-        return (React.createElement(styles_1.List, __assign({}, this.props), renderItem ? (this.renderItem(content, renderItem)) : (React.createElement("ul", null, this.renderDefalut(content)))));
+        return (React.createElement(styles_1.List, __assign({}, this.props),
+            React.createElement("ul", null, renderItem
+                ? this.renderItem(content, renderItem)
+                : this.renderDefalut(content))));
     };
     default_1.Item = Item_1["default"];
     return default_1;
