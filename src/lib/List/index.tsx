@@ -29,11 +29,11 @@ export default class extends React.Component<ListProps, {}> {
     const {content, renderItem} = this.props;
     return (
       <List {...this.props}>
-        {renderItem ? (
-          this.renderItem(content, renderItem)
-        ) : (
-          <ul>{this.renderDefalut(content)}</ul>
-        )}
+        <ul>
+          {renderItem
+            ? this.renderItem(content, renderItem)
+            : this.renderDefalut(content)}
+        </ul>
       </List>
     );
   }
