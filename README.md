@@ -7,6 +7,7 @@
 React componet library for higly customizables projects.
 </div>
 
+<br /><br />
 **Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about).
 
 ## 📕 Principles
