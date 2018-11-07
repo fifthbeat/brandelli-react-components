@@ -1,5 +1,5 @@
 import * as React from "react";
-interface SwitcherProps {
+interface Props {
     /** Generate the content of the radio switcher.*/
     content: object[];
     /** Append some text at the bottom */
@@ -7,9 +7,14 @@ interface SwitcherProps {
     /** Append some text at the top */
     header?: string;
 }
-export default class extends React.Component<SwitcherProps, {}> {
-    constructor(props: SwitcherProps);
-    renderTimespanElm: (data: object[]) => JSX.Element[];
+interface State {
+    /** Define the active scope */
+    radio: boolean[];
+}
+export default class extends React.Component<Props, State> {
+    readonly state: State;
     render(): JSX.Element;
+    private selectItem;
+    private renderTimespanElm;
 }
 export {};

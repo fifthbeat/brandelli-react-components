@@ -17,12 +17,27 @@ var React = require("react");
 var styles_1 = require("./styles");
 var default_1 = /** @class */ (function (_super) {
     __extends(default_1, _super);
-    function default_1(props) {
-        var _this = _super.call(this, props) || this;
-        _this.renderTimespanElm = function (data) {
-            return data.map(function (d) { return React.createElement("li", { key: d.id }, d.label); });
+    function default_1() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            radio: [false, true, false, false]
         };
-        _this.state = {};
+        _this.selectItem = function (index) {
+            var radio = _this.state.radio;
+            var newRadio = radio;
+            for (var i = 0; i < radio.length; i++) {
+                if (index == i) {
+                    radio[i] = true;
+                }
+                else {
+                    radio[i] = false;
+                }
+            }
+            _this.setState({ radio: newRadio });
+        };
+        _this.renderTimespanElm = function (data) {
+            return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id }, d.label)); });
+        };
         return _this;
     }
     default_1.prototype.render = function () {

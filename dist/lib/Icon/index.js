@@ -25,28 +25,20 @@ var __assign = (this && this.__assign) || function () {
 };
 exports.__esModule = true;
 var React = require("react");
-var Item_1 = require("./Item");
 var styles_1 = require("./styles");
 var default_1 = /** @class */ (function (_super) {
     __extends(default_1, _super);
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.renderDefalut = function (content) {
-            return content.map(function (d) { return React.createElement("li", { key: d.id }, d.label); });
-        };
-        _this.renderItem = function (content, item) {
-            return content.map(function (d) { return item(d); });
-        };
+        _this.state = {};
         return _this;
     }
     default_1.prototype.render = function () {
-        var _a = this.props, content = _a.content, renderItem = _a.renderItem;
-        return (React.createElement(styles_1.List, __assign({}, this.props),
-            React.createElement("ul", null, renderItem
-                ? this.renderItem(content, renderItem)
-                : this.renderDefalut(content))));
+        var _a = this.props, label = _a.label, img = _a.img;
+        return (React.createElement(styles_1.Icon, __assign({}, this.props),
+            img,
+            label && React.createElement("span", null, label.text)));
     };
-    default_1.Item = Item_1["default"];
     return default_1;
 }(React.Component));
 exports["default"] = default_1;

@@ -1,16 +1,16 @@
-import * as React from "react";
-import Item from "./Item";
+import * as React from 'react';
+import Item from './Item';
 export interface ListProps {
-    /** Data on which the list will iterate. Default content should be: `[{id: string, label: string}]`*/
+    /** Data on which the list will iterate. Default content should be: `[{id: string, label: string}]` */
     content: any;
     /** Add a border to the list  */
     border?: boolean;
     /** Define list items direction */
-    direction?: "row" | "column";
+    direction?: 'row' | 'column';
     /** Define size of the list item */
-    size?: "small" | "large";
+    size?: 'small' | 'large';
     /** Define the item's content position */
-    contentPosition?: "end" | "center";
+    contentPosition?: 'end' | 'center';
     /** Define height of the list */
     listHeight?: string;
     /** If a defined list item is passed will be used to reder the data */
