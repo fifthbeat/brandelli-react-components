@@ -31,20 +31,17 @@ var List = /** @class */ (function (_super) {
     __extends(List, _super);
     function List(props) {
         var _this = _super.call(this, props) || this;
-        _this.renderItems = function (data) {
-            if (data && data.length > 0) {
-                return data.map(function (d) { return React.createElement(Item_1["default"], { key: d.id }, d.label); });
-            }
-            return React.createElement("li", null, "Ciao sono una lista vuota");
+        _this.renderDefalut = function (content) {
+            return content.map(function (d) { return React.createElement("li", { key: d.id }, d.label); });
         };
         _this.state = {};
         return _this;
     }
     List.prototype.render = function () {
-        var content = this.props.content;
-        return (React.createElement(styles_1.ScrollArea, null,
-            React.createElement(styles_1.IListWrap, __assign({}, this.props), this.renderItems(content))));
+        var _a = this.props, content = _a.content, renderItem = _a.renderItem;
+        return (React.createElement(styles_1.Wrap, __assign({}, this.props), renderItem ? renderItem : React.createElement("ul", null, this.renderDefalut(content))));
     };
+    List.Item = Item_1["default"];
     return List;
 }(React.Component));
 exports["default"] = List;

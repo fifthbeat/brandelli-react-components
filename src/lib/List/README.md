@@ -15,8 +15,6 @@ const displayContent = [{id: 1, label: 'Item 1'}, {id: 2, label: 'Item 2 '}, {id
 List with custom items
 
 ```js
-const Item = require('./Item');
-const displayContent = [{id: 1, label: 'Item 1'}, {id: 2, label: 'Item 2 '}, {id: 3, label: 'Item 3'}];
-
-<List listItem={Item} content={displayContent} />;
+const displayContent = [{id: 1, label: 'Item pippo'}, {id: 2, label: 'Item 2 '}, {id: 3, label: 'Item 3'}];
+<List content={displayContent} renderItem={item => <List.Item content={item} />} />;
 ```

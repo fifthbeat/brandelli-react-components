@@ -1,22 +1,22 @@
 import * as React from 'react';
 import {Wrap} from './styles';
 
-interface IProps {}
+interface I{{ properCase name }}Props {
 
-class {{ properCase name }} extends {{{ type }}}<IProps, {}>{
+}
 
-  constructor(props: IProps) {
+export default class {{ properCase name }} extends {{{ type }}}<I{{ properCase name }}Props, {}>{
+
+  constructor(props: I{{ properCase name }}Props) {
   super(props);
   this.state = {};
   }
 
   render() {
-  return (
-  <Wrap>
-    This is {{ properCase name }} component
-  </Wrap>
-  );
+    return (
+      <Wrap>
+        This is {{ properCase name }} component
+      </Wrap>
+    );
   }
-  }
-
-  export default {{ properCase name }};
+}

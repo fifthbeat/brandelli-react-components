@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 export interface IProps {
     /** define the height of the element */
     height?: string;
     /** hey teacher leave the  kids alone  */
-    children: object;
+    children: string;
 }
 declare class Item extends React.Component<IProps, {}> {
     constructor(props: IProps);

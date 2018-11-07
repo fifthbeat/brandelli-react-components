@@ -41,7 +41,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../src/lib/{{properCase name}}/{{properCase name}}.tsx',
+        path: '../src/lib/{{properCase name}}/index.tsx',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
@@ -55,12 +55,6 @@ module.exports = {
         type: 'add',
         path: '../src/lib/{{properCase name}}/README.md',
         templateFile: './component/README.md.hbs',
-        abortOnFail: true,
-      },
-      {
-        type: 'add',
-        path: '../src/lib/{{properCase name}}/index.tsx',
-        templateFile: './component/index.tsx.hbs',
         abortOnFail: true,
       },
     ];

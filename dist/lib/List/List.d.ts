@@ -1,21 +1,31 @@
-import * as React from 'react';
+import * as React from "react";
+import Item from "./Item";
 export interface IProps {
-    /** add a border to the list  */
+    /** Data on which the list will iterate*/
+    content: [{
+        id: string;
+        label: string;
+    }];
+    /** Add a border to the list  */
     border?: boolean;
-    /** define list items direction */
-    direction?: 'row' | 'column';
-    /** define size of the list item */
-    size?: 'small' | 'large';
-    /** define height of the list */
+    /** Define list items direction */
+    direction?: "row" | "column";
+    /** Define size of the list item */
+    size?: "small" | "large";
+    /** Define the item's content position */
+    contentPosition?: "end" | "center";
+    /** Define height of the list */
     listHeight?: string;
-    /** component inside the list */
-    content: object[];
-    /** define the item's content position */
-    contentPosition?: 'end' | 'center';
+    /** If a defined list item is passed will be used to reder the data */
+    renderItem?: any;
 }
 declare class List extends React.Component<IProps, {}> {
+    static Item: typeof Item;
     constructor(props: IProps);
-    renderItems: (data: any[]) => JSX.Element | JSX.Element[];
+    renderDefalut: (content: [{
+        id: string;
+        label: string;
+    }]) => JSX.Element[];
     render(): JSX.Element;
 }
 export default List;

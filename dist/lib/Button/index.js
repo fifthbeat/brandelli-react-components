@@ -14,16 +14,17 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
-var Item = /** @class */ (function (_super) {
-    __extends(Item, _super);
-    function Item(props) {
+var styles_1 = require("./styles");
+var Button = /** @class */ (function (_super) {
+    __extends(Button, _super);
+    function Button(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {};
         return _this;
     }
-    Item.prototype.render = function () {
-        return React.createElement("li", null, this.props.children);
+    Button.prototype.render = function () {
+        return React.createElement(styles_1.Wrap, null, "Ciao");
     };
-    return Item;
+    return Button;
 }(React.Component));
-exports["default"] = Item;
+exports["default"] = Button;
