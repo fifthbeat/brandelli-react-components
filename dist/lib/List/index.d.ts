@@ -1,7 +1,7 @@
 import * as React from "react";
 import Item from "./Item";
-export interface IProps {
-    /** Data on which the list will iterate*/
+export interface ListProps {
+    /** Data on which the list will iterate. Default content should be: `[{id: string, label: string}]`*/
     content: any;
     /** Add a border to the list  */
     border?: boolean;
@@ -16,7 +16,7 @@ export interface IProps {
     /** If a defined list item is passed will be used to reder the data */
     renderItem?: any;
 }
-export default class List extends React.Component<IProps, {}> {
+export default class extends React.Component<ListProps, {}> {
     static Item: typeof Item;
     renderDefalut: (content: any) => any;
     render(): JSX.Element;

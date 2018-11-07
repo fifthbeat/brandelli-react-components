@@ -14,17 +14,19 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var React = require("react");
-var Item = /** @class */ (function (_super) {
-    __extends(Item, _super);
-    function Item(props) {
+var styles_1 = require("./styles");
+var default_1 = /** @class */ (function (_super) {
+    __extends(default_1, _super);
+    function default_1(props) {
         var _this = _super.call(this, props) || this;
         _this.state = {};
         return _this;
     }
-    Item.prototype.render = function () {
+    default_1.prototype.render = function () {
         var content = this.props.content;
-        return React.createElement("li", { key: content.id }, content.label);
+        return (React.createElement(styles_1.Item, { key: content.id },
+            React.createElement("span", null, content.label)));
     };
-    return Item;
+    return default_1;
 }(React.Component));
-exports["default"] = Item;
+exports["default"] = default_1;

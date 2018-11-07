@@ -26,14 +26,15 @@ export default class extends React.Component<ListProps, {}> {
     content.map((d: any) => <li key={d.id}>{d.label}</li>);
 
   public render() {
+    console.log(this.props);
     const { content, renderItem } = this.props;
     return (
       <List {...this.props}>
-        {renderItem ? (
-          this.renderItem(content, renderItem)
-        ) : (
-          <ul>{this.renderDefalut(content)}</ul>
-        )}
+        <ul>
+          {renderItem
+            ? this.renderItem(content, renderItem)
+            : this.renderDefalut(content)}
+        </ul>
       </List>
     );
   }

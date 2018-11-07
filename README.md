@@ -2,7 +2,7 @@
 
 ![](http://images.treccani.it/enc/media/share/images/orig/system/galleries/Iconografico/Esercizio/146160.gif)
 
-**Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about)
+**Brandelli** in italian means shreds, like the ones of Arlecchino's costume. (Reference [here](https://en.wikipedia.org/wiki/Harlequin) if you don't know what we are talking about).  
 This is a react componet library that works both in typescript and regular JSX.
 
 # Principles
@@ -63,3 +63,9 @@ Stuff we have to implent to pimp this butterfly
 
 - [ ] Default theming
 - [ ] Theme ovveriding options
+
+# Libs we used as inspiration
+
+- [gestalt](https://github.com/pinterest/gestalt)
+- [ant-design](https://github.com/ant-design/ant-design)
+- [bulma components](https://github.com/couds/react-bulma-components)

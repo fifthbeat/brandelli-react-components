@@ -27,9 +27,9 @@ exports.__esModule = true;
 var React = require("react");
 var Item_1 = require("./Item");
 var styles_1 = require("./styles");
-var List = /** @class */ (function (_super) {
-    __extends(List, _super);
-    function List() {
+var default_1 = /** @class */ (function (_super) {
+    __extends(default_1, _super);
+    function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.renderDefalut = function (content) {
             return content.map(function (d) { return React.createElement("li", { key: d.id }, d.label); });
@@ -39,11 +39,11 @@ var List = /** @class */ (function (_super) {
         };
         return _this;
     }
-    List.prototype.render = function () {
+    default_1.prototype.render = function () {
         var _a = this.props, content = _a.content, renderItem = _a.renderItem;
-        return (React.createElement(styles_1.Wrap, __assign({}, this.props), renderItem ? (this.renderItem(content, renderItem)) : (React.createElement("ul", null, this.renderDefalut(content)))));
+        return (React.createElement(styles_1.List, __assign({}, this.props), renderItem ? (this.renderItem(content, renderItem)) : (React.createElement("ul", null, this.renderDefalut(content)))));
     };
-    List.Item = Item_1["default"];
-    return List;
+    default_1.Item = Item_1["default"];
+    return default_1;
 }(React.Component));
-exports["default"] = List;
+exports["default"] = default_1;
