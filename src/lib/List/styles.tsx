@@ -1,10 +1,10 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 
 // import colors from '../../constants/colors'
 // import breakpoints from '../../constants/breakpoints'
 // import fonts from '../../constants/fonts'
 
-interface IListWrap {
+interface IWrap {
   border?: boolean;
   direction?: string;
   size?: string;
@@ -12,61 +12,69 @@ interface IListWrap {
   contentPosition?: string;
 }
 
-export const IListWrap = styled.ul`
-  display: flex;
-  flex-direction: ${(props: IListWrap) => props.direction};
-  width: calc(100% - 32px);
-  height: ${(props: IListWrap) => props.listHeight};
-  padding: 0;
-  border-radius: 4px;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
+export const Wrap = styled.div`
+  height: 100%;
+  box-sizing: border-box;
+
+  & > * {
+    box-sizing: border-box;
   }
 
-  ${(props: IListWrap) =>
+  & > ul {
+    display: flex;
+    flex-direction: ${(props: IWrap) =>
+      props.direction ? props.direction : "column"};
+    width: calc(100% - 32px);
+    height: ${(props: IWrap) => props.listHeight};
+    padding: 0;
+    border-radius: 4px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+  ${(props: IWrap) =>
     props.border &&
     css`
       border: 1px solid lightgrey;
     `};
 
   & > li {
+    display: flex;
+    align-items: center;
     list-style-type: none;
-    justify-content: ${(props: IListWrap) => {
+    border-bottom: 1px solid lightgrey;
+    padding: 0 16px;
+    line-height: 1.2;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    justify-content: ${(props: IWrap) => {
       switch (props.contentPosition) {
-        case 'end':
-          return 'flex-end';
-        case 'center':
-          return 'center';
+        case "end":
+          return "flex-end";
+        case "center":
+          return "center";
         default:
-          return 'flex-start';
+          return "flex-start";
       }
     }};
-
-    ${(props: IListWrap) => {
+   
+    min-height: ${(props: IWrap) => {
       switch (props.size) {
-        case 'small':
-          return css`
-            padding: 4px 16px;
-            min-height: 40px;
-          `;
-        case 'large':
-          return css`
-            padding: 16px 16px;
-            min-height: 80px;
-          `;
+        case "small":
+          return "32px";
+        case "large":
+          return "64px";
         default:
-          return css`
-            padding: 16px 16px;
-            min-height: 60px;
-          `;
+          return "40px";
       }
     }};
+   
   }
-`;
-
-export const ScrollArea = styled.div`
-  height: 100%;
 `;
 
 export const IItemWrap = styled.li`

@@ -1,6 +1,6 @@
 ## Description
 
-A radio switcher that display content
+A radio switcher that display a series of optinos and allow the user to select just one.
 
 ## How to use
 

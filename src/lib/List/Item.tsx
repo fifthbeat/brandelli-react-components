@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {IItemWrap} from './styles';
+import * as React from "react";
+import { IItemWrap } from "./styles";
 
 export interface IProps {
   /** define the height of the element */
   height?: string;
   /** hey teacher leave the  kids alone  */
-  children: object;
+  children: React.ReactNode;
 }
 
 class Item extends React.Component<IProps, {}> {
