@@ -24,7 +24,7 @@ export const List = styled.div`
     display: flex;
     flex-direction: ${(props: ListProps) =>
       props.direction ? props.direction : "column"};
-    width: calc(100% - 32px);
+    width: 100%;
     height: ${(props: ListProps) => props.listHeight};
     padding: 0;
     border-radius: 4px;
