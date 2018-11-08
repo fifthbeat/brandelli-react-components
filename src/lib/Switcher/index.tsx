@@ -16,11 +16,13 @@ interface Props {
 interface State {
   /** Define the active scope */
   radio: boolean[];
+  /** Default element active */
+  activeDefault: number;
 }
 
 export default class extends React.Component<Props, State> {
   public static getDerivedStateFromProps(props: any, state: any) {
-    if (props.elementActive) {
+    if (props.elementActive !== state.activeDefault) {
       const newRadio = state.radio;
       for (let i = 0; i < state.radio.length; i++) {
         if (props.elementActive == i) {
@@ -29,12 +31,13 @@ export default class extends React.Component<Props, State> {
           state.radio[i] = false;
         }
       }
-      return { radio: newRadio };
+      return { radio: newRadio, activeDefault: props.elementActive };
     }
     return { radio: [true] };
   }
   public readonly state: State = {
-    radio: [true]
+    radio: [true],
+    activeDefault: 0
   };
 
   public componentDidMount() {

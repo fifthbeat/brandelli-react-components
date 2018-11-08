@@ -24,6 +24,11 @@ export const List = styled.div`
       left: 0;
       right: 0;
       bottom: 0;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     `};
 
   & > * {
@@ -38,11 +43,6 @@ export const List = styled.div`
     height: ${(props: ListProps) => props.listHeight};
     padding: 0;
     border-radius: 4px;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     ${(props: ListProps) =>
       props.border &&
