@@ -1,6 +1,6 @@
+import "normalize.css";
 import * as React from "react";
 import { Icon } from "./styles";
-
 interface Props {
   /** Define position and icon's label */
   label?: { pos: string; text: string };
