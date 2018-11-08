@@ -8,6 +8,10 @@ interface Props {
   footer?: string;
   /** Append some text at the top */
   header?: string;
+  /** Save index of active element */
+  action?: any;
+  /** Default active element */
+  elementActive?: number;
 }
 interface State {
   /** Define the active scope */
@@ -15,12 +19,31 @@ interface State {
 }
 
 export default class extends React.Component<Props, State> {
+  public static getDerivedStateFromProps(props: any, state: any) {
+    if (props.elementActive) {
+      const newRadio = state.radio;
+      for (let i = 0; i < state.radio.length; i++) {
+        if (props.elementActive == i) {
+          state.radio[i] = true;
+        } else {
+          state.radio[i] = false;
+        }
+      }
+      return { radio: newRadio };
+    }
+    return { radio: [true] };
+  }
   public readonly state: State = {
-    radio: [false, true, false, false]
+    radio: [true]
   };
+
+  public componentDidMount() {
+    this.createRadio();
+  }
 
   public render() {
     const { content, footer, header } = this.props;
+    console.log(this.state.radio);
     return (
       <Switcher>
         {header && <header>{header}</header>}
@@ -29,6 +52,15 @@ export default class extends React.Component<Props, State> {
       </Switcher>
     );
   }
+
+  private createRadio = () => {
+    const { content } = this.props;
+    const { radio } = this.state;
+    for (let i = 0; i < this.renderTimespanElm(content).length - 1; i++) {
+      radio.push(false);
+    }
+    return radio;
+  };
 
   private selectItem = (index: number) => {
     const { radio } = this.state;
@@ -41,6 +73,7 @@ export default class extends React.Component<Props, State> {
       }
     }
     this.setState({ radio: newRadio });
+    this.props.action(index);
   };
 
   private renderTimespanElm = (data: object[]) =>
