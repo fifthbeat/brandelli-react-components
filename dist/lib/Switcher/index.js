@@ -20,7 +20,7 @@ var default_1 = /** @class */ (function (_super) {
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            radio: [true],
+            radio: [true, false, false],
             activeDefault: 0
         };
         _this.createRadio = function () {
@@ -63,7 +63,7 @@ var default_1 = /** @class */ (function (_super) {
             }
             return { radio: newRadio, activeDefault: props.elementActive };
         }
-        return { radio: [true] };
+        return { state: state };
     };
     default_1.prototype.componentDidMount = function () {
         this.createRadio();

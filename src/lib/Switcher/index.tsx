@@ -22,7 +22,7 @@ interface State {
 
 export default class extends React.Component<Props, State> {
   public static getDerivedStateFromProps(props: any, state: any) {
-    if (props.elementActive !== state.activeDefault) {
+    if (props.elementActive && props.elementActive !== state.activeDefault) {
       const newRadio = state.radio;
       for (let i = 0; i < state.radio.length; i++) {
         if (props.elementActive == i) {

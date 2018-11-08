@@ -21,8 +21,10 @@ export default class extends React.Component<Props, State> {
     static getDerivedStateFromProps(props: any, state: any): {
         radio: any;
         activeDefault: any;
+        state?: undefined;
     } | {
-        radio: boolean[];
+        state: any;
+        radio?: undefined;
         activeDefault?: undefined;
     };
     readonly state: State;
