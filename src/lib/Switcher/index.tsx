@@ -56,7 +56,11 @@ export default class extends React.Component<Props, State> {
   private createRadio = () => {
     const { content } = this.props;
     const { radio } = this.state;
-    for (let i = 0; i < this.renderTimespanElm(content).length - 1; i++) {
+    for (
+      let i = radio.length;
+      i < this.renderTimespanElm(content).length;
+      i++
+    ) {
       radio.push(false);
     }
     return radio;

@@ -25,7 +25,7 @@ var default_1 = /** @class */ (function (_super) {
         _this.createRadio = function () {
             var content = _this.props.content;
             var radio = _this.state.radio;
-            for (var i = 0; i < _this.renderTimespanElm(content).length - 1; i++) {
+            for (var i = radio.length; i < _this.renderTimespanElm(content).length; i++) {
                 radio.push(false);
             }
             return radio;
