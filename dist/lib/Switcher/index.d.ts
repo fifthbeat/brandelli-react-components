@@ -14,10 +14,16 @@ interface Props {
 interface State {
     /** Define the active scope */
     radio: boolean[];
+    /** Default element active */
+    activeDefault: number;
 }
 export default class extends React.Component<Props, State> {
     static getDerivedStateFromProps(props: any, state: any): {
         radio: any;
+        activeDefault: any;
+    } | {
+        radio: boolean[];
+        activeDefault?: undefined;
     };
     readonly state: State;
     componentDidMount(): void;

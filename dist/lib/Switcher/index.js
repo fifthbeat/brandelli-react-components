@@ -20,7 +20,8 @@ var default_1 = /** @class */ (function (_super) {
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            radio: [true]
+            radio: [true],
+            activeDefault: 0
         };
         _this.createRadio = function () {
             var content = _this.props.content;
@@ -50,7 +51,7 @@ var default_1 = /** @class */ (function (_super) {
         return _this;
     }
     default_1.getDerivedStateFromProps = function (props, state) {
-        if (props.elementActive) {
+        if (props.elementActive !== state.activeDefault) {
             var newRadio = state.radio;
             for (var i = 0; i < state.radio.length; i++) {
                 if (props.elementActive == i) {
@@ -60,7 +61,7 @@ var default_1 = /** @class */ (function (_super) {
                     state.radio[i] = false;
                 }
             }
-            return { radio: newRadio };
+            return { radio: newRadio, activeDefault: props.elementActive };
         }
         return { radio: [true] };
     };

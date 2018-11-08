@@ -33,10 +33,10 @@ export default class extends React.Component<Props, State> {
       }
       return { radio: newRadio, activeDefault: props.elementActive };
     }
-    return { radio: [true] };
+    return { state };
   }
   public readonly state: State = {
-    radio: [true],
+    radio: [true, false, false],
     activeDefault: 0
   };
 
