@@ -20,7 +20,16 @@ var default_1 = /** @class */ (function (_super) {
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            radio: [false, true, false, false]
+            radio: [true, false, false],
+            activeDefault: 0
+        };
+        _this.createRadio = function () {
+            var content = _this.props.content;
+            var radio = _this.state.radio;
+            for (var i = radio.length; i < _this.renderTimespanElm(content).length; i++) {
+                radio.push(false);
+            }
+            return radio;
         };
         _this.selectItem = function (index) {
             var radio = _this.state.radio;
@@ -34,14 +43,34 @@ var default_1 = /** @class */ (function (_super) {
                 }
             }
             _this.setState({ radio: newRadio });
+            _this.props.action(index);
         };
         _this.renderTimespanElm = function (data) {
             return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id }, d.label)); });
         };
         return _this;
     }
+    default_1.getDerivedStateFromProps = function (props, state) {
+        if (props.elementActive !== state.activeDefault) {
+            var newRadio = state.radio;
+            for (var i = 0; i < state.radio.length; i++) {
+                if (props.elementActive == i) {
+                    state.radio[i] = true;
+                }
+                else {
+                    state.radio[i] = false;
+                }
+            }
+            return { radio: newRadio, activeDefault: props.elementActive };
+        }
+        return { state: state };
+    };
+    default_1.prototype.componentDidMount = function () {
+        this.createRadio();
+    };
     default_1.prototype.render = function () {
         var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header;
+        console.log(this.state.radio);
         return (React.createElement(styles_1.Switcher, null,
             header && React.createElement("header", null, header),
             React.createElement("ul", null, content && this.renderTimespanElm(content)),

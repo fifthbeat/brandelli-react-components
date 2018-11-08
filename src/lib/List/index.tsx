@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import "normalize.css";
+=======
+>>>>>>> d0c27eca8c30436f4ca35882f10b02f80a69a1f5
 import * as React from "react";
 import Item from "./Item";
 import { List } from "./styles";
@@ -18,6 +21,8 @@ export interface ListProps {
   listHeight?: string;
   /** If a defined list item is passed will be used to reder the data */
   renderItem?: any;
+  /** If this props is true, list wrap positioning is absolute */
+  absolute?: boolean;
 }
 
 export default class extends React.Component<ListProps, {}> {

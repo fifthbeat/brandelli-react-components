@@ -10,11 +10,26 @@ interface ListProps {
   size?: string;
   listHeight?: string;
   contentPosition?: string;
+  absolute?: boolean;
 }
 
 export const List = styled.div`
   height: 100%;
   box-sizing: border-box;
+  ${(props: ListProps) =>
+    props.absolute &&
+    css`
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    `};
 
   & > * {
     box-sizing: border-box;
@@ -28,11 +43,6 @@ export const List = styled.div`
     height: ${(props: ListProps) => props.listHeight};
     padding: 0;
     border-radius: 4px;
-    overflow-y: scroll;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     ${(props: ListProps) =>
       props.border &&

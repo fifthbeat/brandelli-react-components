@@ -1,7 +1,11 @@
 {
   "name": "brandelli",
   "description": "react components library in typescript",
+<<<<<<< HEAD
   "version": "0.1.26",
+=======
+  "version": "0.1.35",
+>>>>>>> d0c27eca8c30436f4ca35882f10b02f80a69a1f5
   "license": "MIT",
   "keywords": [
     "react",
@@ -42,7 +46,11 @@
     "start": "styleguidist server",
     "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
     "prepublish": "npm run build && npm run github",
+<<<<<<< HEAD
     "github": "npm run build && npm run build:static && git push git@github.com:fifthbeat/brandelli-react-components.git",
+=======
+    "github": "npm run build && npm run build:static && git push -f git@github.com:fifthbeat/brandelli-react-components.git",
+>>>>>>> d0c27eca8c30436f4ca35882f10b02f80a69a1f5
     "generate": "plop --plopfile generators/index.js",
     "eject": "react-scripts-ts eject"
   },
