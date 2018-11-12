@@ -51,7 +51,7 @@ var default_1 = /** @class */ (function (_super) {
         return _this;
     }
     default_1.getDerivedStateFromProps = function (props, state) {
-        if (props.elementActive !== state.activeDefault) {
+        if (props.elementActive && props.elementActive !== state.activeDefault) {
             var newRadio = state.radio;
             for (var i = 0; i < state.radio.length; i++) {
                 if (props.elementActive == i) {
