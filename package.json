@@ -17,8 +17,7 @@
     "url": "https://github.com/fifthbeat/brandelli-react.components"
   },
   "author": "fifthbeat",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Nicola Bertelloni",
       "email": "nicola.bertelloni@gmail.com",
       "url": "https://github.com/wanbinkimoonf"
@@ -48,6 +47,7 @@
   },
   "dependencies": {
     "@types/styled-components": "^4.0.3",
+    "normalize.css": "^8.0.0",
     "react": "^16.6.0",
     "react-docgen-typescript": "^1.12.0",
     "react-dom": "^16.6.0",
