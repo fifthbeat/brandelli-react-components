@@ -7,7 +7,7 @@ interface Props {
   /** Define img to load */
   img: string | React.ReactElement<any>;
   /** Define if icon is filled or outlined */
-  theme?: "outline" | "fill" | undefined;
+  theme?: "outline" | "fill" | "none";
   /** Define icon's color */
   color?: string;
   /** Define component size */
