@@ -71,7 +71,7 @@ var default_1 = /** @class */ (function (_super) {
     };
     default_1.prototype.render = function () {
         var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header;
-        console.log(this.state.radio);
+        // console.log(this.state.radio);
         return (React.createElement(styles_1.Switcher, null,
             header && React.createElement("header", null, header),
             React.createElement("ul", null, content && this.renderTimespanElm(content)),
