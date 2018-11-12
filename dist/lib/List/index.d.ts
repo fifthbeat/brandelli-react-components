@@ -1,3 +1,4 @@
+import "normalize.css";
 import * as React from "react";
 import Item from "./Item";
 export interface ListProps {

@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+require("normalize.css");
 var React = require("react");
 var styles_1 = require("./styles");
 var default_1 = /** @class */ (function (_super) {

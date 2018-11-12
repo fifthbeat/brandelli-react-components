@@ -24,6 +24,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 exports.__esModule = true;
+require("normalize.css");
 var React = require("react");
 var styles_1 = require("./styles");
 var default_1 = /** @class */ (function (_super) {

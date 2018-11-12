@@ -1,3 +1,4 @@
+import "normalize.css";
 import * as React from "react";
 interface Props {
     /** Define position and icon's label */
@@ -8,7 +9,7 @@ interface Props {
     /** Define img to load */
     img: string | React.ReactElement<any>;
     /** Define if icon is filled or outlined */
-    theme?: "outline" | "fill";
+    theme?: "outline" | "fill" | undefined;
     /** Define icon's color */
     color?: string;
     /** Define component size */
