@@ -9,7 +9,7 @@ Component example:
 ```js
 const displayContent = [{id: 'item1', label: 'Item 1'}, {id: 'item2', label: 'Item 2'}, {id: 'item3', label: 'Item 3'}];
 
-<Switcher content={displayContent} header="Header text" footer="Footer text" action={i => console.log(i)} />;
+<Switcher content={displayContent} header="Header text" footer="Footer text" />;
 ```
 
 Component with activeElement:
@@ -17,11 +17,5 @@ Component with activeElement:
 ```js
 const displayContent = [{id: 'item1', label: 'Item 1'}, {id: 'item2', label: 'Item 2'}, {id: 'item3', label: 'Item 3'}];
 
-<Switcher
-  content={displayContent}
-  header="Header text"
-  footer="Footer text"
-  action={i => console.log(i)}
-  elementActive={1}
-/>;
+<Switcher content={displayContent} header="Header text" footer="Footer text" elementActive={1} />;
 ```

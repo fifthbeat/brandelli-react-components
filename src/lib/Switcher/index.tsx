@@ -47,7 +47,7 @@ export default class extends React.Component<Props, State> {
 
   public render() {
     const { content, footer, header } = this.props;
-    console.log(this.state.radio);
+    // console.log(this.state.radio);
     return (
       <Switcher>
         {header && <header>{header}</header>}
