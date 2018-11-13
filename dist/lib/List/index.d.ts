@@ -18,6 +18,8 @@ export interface ListProps {
     renderItem?: any;
     /** If this props is true, list wrap positioning is absolute */
     absolute?: boolean;
+    /** Define the custom class name to give at component */
+    customClass?: string | undefined;
 }
 export default class extends React.Component<ListProps, {}> {
     static Item: typeof Item;

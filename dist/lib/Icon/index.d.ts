@@ -14,6 +14,8 @@ interface Props {
     color?: string;
     /** Define component size */
     size?: string;
+    /** Define the custom class name to give at component */
+    customClass?: string | undefined;
 }
 interface State {
 }

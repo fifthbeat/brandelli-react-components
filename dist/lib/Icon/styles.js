@@ -6,7 +6,7 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 exports.__esModule = true;
 var styled_components_1 = require("styled-components");
 exports.Icon = styled_components_1["default"].div.attrs({
-    className: function (props) { return props.className; }
+    className: function (props) { return props.customClass; }
 })(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  display: grid;\n  grid-template-rows: ", ";\n  grid-template-columns: ", ";\n  align-items: center;\n  transition: all 200ms ease-out;\n  & > svg {\n    justify-self: center;\n    ", ";\n  }\n  & > span {\n    font-size: 16px;\n    align-self: center;\n    justify-self: center;\n    color: ", ";\n    grid-row: ", ";\n    grid-column: ", ";\n  }\n"], ["\n  display: grid;\n  grid-template-rows: ",
     ";\n  grid-template-columns: ",
     ";\n  align-items: center;\n  transition: all 200ms ease-out;\n  & > svg {\n    justify-self: center;\n    ",

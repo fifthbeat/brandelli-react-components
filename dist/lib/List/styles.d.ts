@@ -6,6 +6,7 @@ interface ListProps {
     listHeight?: string;
     contentPosition?: string;
     absolute?: boolean;
+    customClass?: string;
 }
 export declare const List: import("styled-components").StyledComponentClass<Pick<{
     className: any;

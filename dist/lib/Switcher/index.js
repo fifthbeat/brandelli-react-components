@@ -46,8 +46,8 @@ var default_1 = /** @class */ (function (_super) {
             _this.setState({ radio: newRadio });
             _this.props.action(index);
         };
-        _this.renderTimespanElm = function (data) {
-            return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id }, d.label)); });
+        _this.renderTimespanElm = function (data, customClass) {
+            return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id, customClass: customClass }, d.label)); });
         };
         return _this;
     }
@@ -70,11 +70,11 @@ var default_1 = /** @class */ (function (_super) {
         this.createRadio();
     };
     default_1.prototype.render = function () {
-        var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header;
+        var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header, customClass = _a.customClass;
         // console.log(this.state.radio);
         return (React.createElement(styles_1.Switcher, null,
             header && React.createElement("header", null, header),
-            React.createElement("ul", null, content && this.renderTimespanElm(content)),
+            React.createElement("ul", null, content && this.renderTimespanElm(content, customClass)),
             footer && React.createElement("footer", null, footer)));
     };
     return default_1;

@@ -7,6 +7,7 @@ interface IconProps {
     size?: string;
     theme?: "outline" | "fill" | "none" | undefined;
     color?: string;
+    customClass?: string;
 }
 export declare const Icon: import("styled-components").StyledComponentClass<Pick<{
     className: any;

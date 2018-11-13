@@ -83,7 +83,7 @@ export default class extends React.Component<Props, State> {
       }
     }
     this.setState({ radio: newRadio });
-    this.props.action(index);
+    //this.props.action(index);
   };
 
   private renderTimespanElm = (data: object[], customClass?: string) =>

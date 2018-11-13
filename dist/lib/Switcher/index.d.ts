@@ -11,6 +11,8 @@ interface Props {
     action?: any;
     /** Default active element */
     elementActive?: number;
+    /** Define the custom class name to give at component */
+    customClass?: string | undefined;
 }
 interface State {
     /** Define the active scope */
