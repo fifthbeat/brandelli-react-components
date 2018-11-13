@@ -5,7 +5,9 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 };
 exports.__esModule = true;
 var styled_components_1 = require("styled-components");
-exports.List = styled_components_1["default"].div(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  height: 100%;\n  box-sizing: border-box;\n  ", ";\n\n  & > * {\n    box-sizing: border-box;\n  }\n\n  & > ul {\n    display: flex;\n    flex-direction: ", ";\n    width: 100%;\n    height: ", ";\n    padding: 0;\n    border-radius: 4px;\n\n    ", ";\n\n    list-style-type: none;\n    & > li {\n      display: flex;\n      align-items: center;\n      border-bottom: 1px solid lightgrey;\n      padding: 0 16px;\n      line-height: 1.2;\n\n      &:last-of-type {\n        border-bottom: none;\n      }\n\n      justify-content: ", ";\n\n      min-height: ", ";\n    }\n  }\n"], ["\n  height: 100%;\n  box-sizing: border-box;\n  ",
+exports.List = styled_components_1["default"].div.attrs({
+    className: function (props) { return props.className; }
+})(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  height: 100%;\n  box-sizing: border-box;\n  ", ";\n\n  & > * {\n    box-sizing: border-box;\n  }\n\n  & > ul {\n    display: flex;\n    flex-direction: ", ";\n    width: 100%;\n    height: ", ";\n    padding: 0;\n    border-radius: 4px;\n\n    ", ";\n\n    list-style-type: none;\n    & > li {\n      display: flex;\n      align-items: center;\n      border-bottom: 1px solid lightgrey;\n      padding: 0 16px;\n      line-height: 1.2;\n\n      &:last-of-type {\n        border-bottom: none;\n      }\n\n      justify-content: ", ";\n\n      min-height: ", ";\n    }\n  }\n"], ["\n  height: 100%;\n  box-sizing: border-box;\n  ",
     ";\n\n  & > * {\n    box-sizing: border-box;\n  }\n\n  & > ul {\n    display: flex;\n    flex-direction: ",
     ";\n    width: 100%;\n    height: ", ";\n    padding: 0;\n    border-radius: 4px;\n\n    ",
     ";\n\n    list-style-type: none;\n    & > li {\n      display: flex;\n      align-items: center;\n      border-bottom: 1px solid lightgrey;\n      padding: 0 16px;\n      line-height: 1.2;\n\n      &:last-of-type {\n        border-bottom: none;\n      }\n\n      justify-content: ",
@@ -35,5 +37,7 @@ exports.List = styled_components_1["default"].div(templateObject_3 || (templateO
             return "40px";
     }
 });
-exports.Item = styled_components_1["default"].li(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  list-style-type: none;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  box-sizing: border-box;\n  border-bottom: 1px solid lightgrey;\n  :last-of-type {\n    border: none;\n  }\n"], ["\n  list-style-type: none;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  box-sizing: border-box;\n  border-bottom: 1px solid lightgrey;\n  :last-of-type {\n    border: none;\n  }\n"])));
+exports.Item = styled_components_1["default"].li.attrs({
+    className: function (props) { return props.className; }
+})(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  list-style-type: none;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  box-sizing: border-box;\n  border-bottom: 1px solid lightgrey;\n  :last-of-type {\n    border: none;\n  }\n"], ["\n  list-style-type: none;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  box-sizing: border-box;\n  border-bottom: 1px solid lightgrey;\n  :last-of-type {\n    border: none;\n  }\n"])));
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;

@@ -43,7 +43,7 @@ interface ItemProps {
 }
 
 export const Item = styled.li.attrs({
-  className: (props: any) => props.className
+  className: (props: any) => (props.active ? "active" : "inactive")
 })`
   display: flex;
   height: 100%;
