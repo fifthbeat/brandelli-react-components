@@ -5,7 +5,7 @@ interface IconProps {
         text: string;
     };
     size?: string;
-    theme?: 'outline' | 'fill' | undefined;
+    theme?: "outline" | "fill" | "none" | undefined;
     color?: string;
 }
 export declare const Icon: import("styled-components").StyledComponentClass<import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & IconProps, any, import("react").ClassAttributes<HTMLDivElement> & import("react").HTMLAttributes<HTMLDivElement> & IconProps>;

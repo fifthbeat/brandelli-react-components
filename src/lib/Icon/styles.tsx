@@ -7,7 +7,9 @@ interface IconProps {
   color?: string;
 }
 
-export const Icon = styled.div`
+export const Icon = styled.div.attrs({
+  className: (props: any) => props.className
+})`
   display: grid;
   grid-template-rows: ${(props: IconProps) => {
     switch (props.label && props.label.pos) {

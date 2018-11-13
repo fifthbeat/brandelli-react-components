@@ -4,7 +4,9 @@ import styled, { css } from "styled-components";
 // import breakpoints from '../../constants/breakpoints'
 // import fonts from '../../constants/fonts'
 
-export const Switcher = styled.div`
+export const Switcher = styled.div.attrs({
+  className: (props: any) => props.className
+})`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -40,7 +42,9 @@ interface ItemProps {
   key: any;
 }
 
-export const Item = styled.li`
+export const Item = styled.li.attrs({
+  className: (props: any) => props.className
+})`
   display: flex;
   height: 100%;
   width: 100%;

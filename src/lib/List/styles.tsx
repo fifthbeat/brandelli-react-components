@@ -13,7 +13,9 @@ interface ListProps {
   absolute?: boolean;
 }
 
-export const List = styled.div`
+export const List = styled.div.attrs({
+  className: (props: any) => props.className
+})`
   height: 100%;
   box-sizing: border-box;
   ${(props: ListProps) =>
@@ -87,7 +89,9 @@ export const List = styled.div`
   }
 `;
 
-export const Item = styled.li`
+export const Item = styled.li.attrs({
+  className: (props: any) => props.className
+})`
   list-style-type: none;
   display: flex;
   flex-direction: row;
