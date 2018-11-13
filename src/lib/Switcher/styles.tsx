@@ -40,10 +40,12 @@ interface ItemProps {
   active?: boolean;
   children: any;
   key: any;
+  customClass?: string;
 }
 
 export const Item = styled.li.attrs({
-  className: (props: any) => (props.active ? "active" : "inactive")
+  className: (props: any) =>
+    [props.active ? "active" : "inactive", props.customClass].join(" ")
 })`
   display: flex;
   height: 100%;

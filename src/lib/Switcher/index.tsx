@@ -13,6 +13,8 @@ interface Props {
   action?: any;
   /** Default active element */
   elementActive?: number;
+  /** Define the custom class name to give at component */
+  customClass?: string | undefined;
 }
 interface State {
   /** Define the active scope */
@@ -46,12 +48,12 @@ export default class extends React.Component<Props, State> {
   }
 
   public render() {
-    const { content, footer, header } = this.props;
+    const { content, footer, header, customClass } = this.props;
     // console.log(this.state.radio);
     return (
       <Switcher>
         {header && <header>{header}</header>}
-        <ul>{content && this.renderTimespanElm(content)}</ul>
+        <ul>{content && this.renderTimespanElm(content, customClass)}</ul>
         {footer && <footer>{footer}</footer>}
       </Switcher>
     );
@@ -84,12 +86,13 @@ export default class extends React.Component<Props, State> {
     this.props.action(index);
   };
 
-  private renderTimespanElm = (data: object[]) =>
+  private renderTimespanElm = (data: object[], customClass?: string) =>
     data.map((d: any, index: number) => (
       <Item
         onClick={() => this.selectItem(index)}
         active={this.state.radio[index]}
         key={d.id}
+        customClass={customClass}
       >
         {d.label}
       </Item>

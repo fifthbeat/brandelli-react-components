@@ -5,10 +5,11 @@ interface IconProps {
   size?: string;
   theme?: "outline" | "fill" | "none" | undefined;
   color?: string;
+  customClass?: string;
 }
 
 export const Icon = styled.div.attrs({
-  className: (props: any) => props.className
+  className: (props: any) => props.customClass
 })`
   display: grid;
   grid-template-rows: ${(props: IconProps) => {

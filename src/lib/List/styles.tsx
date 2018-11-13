@@ -11,10 +11,11 @@ interface ListProps {
   listHeight?: string;
   contentPosition?: string;
   absolute?: boolean;
+  customClass?: string;
 }
 
 export const List = styled.div.attrs({
-  className: (props: any) => props.className
+  className: (props: any) => props.customClass
 })`
   height: 100%;
   box-sizing: border-box;
