@@ -14,6 +14,7 @@ interface Props {
 }
 interface State {
   sort: any;
+  defaultSort: any;
 }
 
 export default class extends React.Component<Props, State> {
@@ -21,15 +22,15 @@ export default class extends React.Component<Props, State> {
     if (props.default) {
       const newSort = state.sort;
       for (let i = 0; i < props.default; i++) {
-        if (props.default === props.contentToSort[i].id) {
+        if (state.defaultSort === props.contentToSort[i].id) {
           state.sort[i] = 1;
         }
       }
-      return { sort: newSort };
+      return { sort: newSort, defaultSort: null};
     }
     return { state };
   }
-  public readonly state: State = { sort: [0, 0, 0, 0] };
+  public readonly state: State = { sort: [0, 0, 0, 0], defaultSort: this.props.default };
 
   public componentDidMount() {
     this.createSort();
