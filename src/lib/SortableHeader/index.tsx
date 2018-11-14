@@ -10,11 +10,11 @@ interface Props {
   /** Define the custom class name to give at component */
   customClass?: string | undefined;
   /** Define the default sort order */
-  default?: any;
+  default?: number | string | undefined;
 }
 interface State {
-  sort: any;
-  defaultSort: any;
+  sort: number[];
+  defaultSort: number | string | undefined;
 }
 
 export default class extends React.Component<Props, State> {
@@ -73,7 +73,7 @@ export default class extends React.Component<Props, State> {
     return sort;
   };
 
-  private renderHeaderTitle = (data: object[], sort?: number) =>
+  private renderHeaderTitle = (data: object[], sort?: number[]) =>
     data.map((d: any, index: number) => (
       <div key={d.id} onClick={() => this.sortFunc(d.id - 1)}>
         {sort && <SortArrows sort={sort[d.id - 1]} />}
