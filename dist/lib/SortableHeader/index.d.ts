@@ -11,14 +11,17 @@ interface Props {
 }
 interface State {
     sort: any;
+    defaultSort: any;
 }
 export default class extends React.Component<Props, State> {
     static getDerivedStateFromProps(props: any, state: any): {
         sort: any;
+        defaultSort: any;
         state?: undefined;
     } | {
         state: any;
         sort?: undefined;
+        defaultSort?: undefined;
     };
     readonly state: State;
     componentDidMount(): void;

@@ -31,7 +31,7 @@ var default_1 = /** @class */ (function (_super) {
     __extends(default_1, _super);
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = { sort: [0, 0, 0, 0] };
+        _this.state = { sort: [0, 0, 0, 0], defaultSort: _this.props["default"] };
         _this.sortFunc = function (index) {
             var newSort = [0, 0, 0, 0];
             newSort[index] = (_this.state.sort[index] + 1) % 3;
@@ -64,11 +64,11 @@ var default_1 = /** @class */ (function (_super) {
         if (props["default"]) {
             var newSort = state.sort;
             for (var i = 0; i < props["default"]; i++) {
-                if (props["default"] === props.contentToSort[i].id) {
+                if (state.defaultSort === props.contentToSort[i].id) {
                     state.sort[i] = 1;
                 }
             }
-            return { sort: newSort };
+            return { sort: newSort, defaultSort: null };
         }
         return { state: state };
     };

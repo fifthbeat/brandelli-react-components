@@ -17,8 +17,7 @@
     "url": "https://github.com/fifthbeat/brandelli-react.components"
   },
   "author": "fifthbeat",
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Nicola Bertelloni",
       "email": "nicola.bertelloni@gmail.com",
       "url": "https://github.com/wanbinkimoonf"
@@ -40,7 +39,8 @@
   "scripts": {
     "build:static": "styleguidist build",
     "start": "styleguidist server",
-    "build": "rm -rf dist && tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
+    "compile": "tsc --jsx react --declaration  --outDir ./dist ./src/index.tsx",
+    "build": "rm -rf dist && npm run compile",
     "prepublish": "npm run build && npm run github",
     "github": "npm run build && npm run build:static && git push -f git@github.com:fifthbeat/brandelli-react-components.git",
     "generate": "plop --plopfile generators/index.js",
