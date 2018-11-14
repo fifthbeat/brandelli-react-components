@@ -1,7 +1,7 @@
 {
   "name": "brandelli",
   "description": "react components library in typescript",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "license": "MIT",
   "keywords": [
     "react",
@@ -17,7 +17,8 @@
     "url": "https://github.com/fifthbeat/brandelli-react.components"
   },
   "author": "fifthbeat",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Nicola Bertelloni",
       "email": "nicola.bertelloni@gmail.com",
       "url": "https://github.com/wanbinkimoonf"
