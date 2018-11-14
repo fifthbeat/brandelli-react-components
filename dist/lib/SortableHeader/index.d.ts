@@ -7,11 +7,11 @@ interface Props {
     /** Define the custom class name to give at component */
     customClass?: string | undefined;
     /** Define the default sort order */
-    default?: any;
+    default?: number | string | undefined;
 }
 interface State {
-    sort: any;
-    defaultSort: any;
+    sort: number[];
+    defaultSort: number | string | undefined;
 }
 export default class extends React.Component<Props, State> {
     static getDerivedStateFromProps(props: any, state: any): {

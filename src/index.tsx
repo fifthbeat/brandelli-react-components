@@ -5,5 +5,5 @@ export { Switcher };
 
 import Icon from "./lib/Icon";
 export { Icon };
-import SortableHeader from "./lib/SortableHeader";
-export { SortableHeader };
+// import SortableHeader from "./lib/SortableHeader";
+// export { SortableHeader };
