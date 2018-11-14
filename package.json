@@ -1,7 +1,7 @@
 {
   "name": "brandelli",
   "description": "react components library in typescript",
-  "version": "0.1.44",
+  "version": "0.1.45",
   "license": "MIT",
   "keywords": [
     "react",
