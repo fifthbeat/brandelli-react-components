@@ -5,13 +5,35 @@ import { SortableHeader } from "./styles";
 interface Props {
   /** Spit sort array out of component */
   action?: any;
+  /** Define the column title */
+  contentToSort?: object[] | undefined;
+  /** Define the custom class name to give at component */
+  customClass?: string | undefined;
+  /** Define the default sort order */
+  default?: any;
 }
 interface State {
   sort: any;
 }
 
 export default class extends React.Component<Props, State> {
+  public static getDerivedStateFromProps(props: any, state: any) {
+    if (props.default) {
+      const newSort = state.sort;
+      for (let i = 0; i < props.default; i++) {
+        if (props.default === props.contentToSort[i].id) {
+          state.sort[i] = 1;
+        }
+      }
+      return { sort: newSort };
+    }
+    return { state };
+  }
   public readonly state: State = { sort: [0, 0, 0, 0] };
+
+  public componentDidMount() {
+    this.createSort();
+  }
 
   public sortFunc = (index: number) => {
     const newSort = [0, 0, 0, 0];
@@ -27,25 +49,34 @@ export default class extends React.Component<Props, State> {
 
   public render() {
     const { sort } = this.state;
+    const { contentToSort } = this.props;
     return (
-      <SortableHeader>
-        <div onClick={() => this.sortFunc(0)}>
-          <SortArrows sort={sort[0]} />
-          <span>Titolone</span>
-        </div>
-        <div onClick={() => this.sortFunc(1)}>
-          <SortArrows sort={sort[1]} />
-          <span>cy</span>
-        </div>
-        <div onClick={() => this.sortFunc(2)}>
-          <SortArrows sort={sort[2]} />
-          <span>py</span>
-        </div>
-        <div onClick={() => this.sortFunc(3)}>
-          <SortArrows sort={sort[3]} />
-          <span>∆%</span>
-        </div>
+      <SortableHeader {...this.props}>
+        {contentToSort && this.renderHeaderTitle(contentToSort, sort)}
       </SortableHeader>
     );
   }
+
+  private createSort = () => {
+    const { contentToSort } = this.props;
+    const { sort } = this.state;
+    if(contentToSort) {
+      for (
+        let i = sort.length;
+        i < this.renderHeaderTitle(contentToSort).length;
+        i++
+      ) {
+        sort.push(0);
+      }
+    }
+    return sort;
+  };
+
+  private renderHeaderTitle = (data: object[], sort?: number) =>
+    data.map((d: any, index: number) => (
+      <div key={d.id} onClick={() => this.sortFunc(d.id - 1)}>
+        {sort && <SortArrows sort={sort[d.id - 1]} />}
+        <span>{d.label}</span>
+      </div>
+    ));
 }

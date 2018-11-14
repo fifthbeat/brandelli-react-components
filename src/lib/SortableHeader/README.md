@@ -7,5 +7,5 @@
 Component example:
 
 ```js
-<SortableHeader sort={[0, 0, 0, 0]} />
+<SortableHeader sort={[0, 0, 0, 0]} contentToSort={[{id: 1, label: 'Title1'}, {id: 2, label: 'Title2'}, {id: 3, label: 'Title3'}, {id: 4, label: 'Title4'}, {id: 5, label: 'Title5'} ]} customClass={'prova'} default={5}/>
 ```

@@ -53,7 +53,6 @@ export const Item = styled.li.attrs({
   flex: 1;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
   border-right: 1px solid lightgray;
   ${(props: ItemProps) =>
     props.active
