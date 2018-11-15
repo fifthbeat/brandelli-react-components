@@ -6,5 +6,3 @@ var Switcher_1 = require("./lib/Switcher");
 exports.Switcher = Switcher_1["default"];
 var Icon_1 = require("./lib/Icon");
 exports.Icon = Icon_1["default"];
-// import SortableHeader from "./lib/SortableHeader";
-// export { SortableHeader };
