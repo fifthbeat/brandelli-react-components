@@ -6,77 +6,72 @@ interface Props {
   /** Spit sort array out of component */
   action?: any;
   /** Define the column title */
-  contentToSort?: object[] | undefined;
+  contentToSort: object[];
   /** Define the custom class name to give at component */
   customClass?: string | undefined;
   /** Define the default sort order */
-  default?: any;
+  defaultSort?: number[] | null | undefined;
 }
 interface State {
-  sort: any;
+  sort: number[] | null;
 }
 
 export default class extends React.Component<Props, State> {
-  public static getDerivedStateFromProps(props: any, state: any) {
-    if (props.default) {
-      const newSort = state.sort;
-      for (let i = 0; i < props.default; i++) {
-        if (props.default === props.contentToSort[i].id) {
-          state.sort[i] = 1;
-        }
-      }
-      return { sort: newSort };
-    }
-    return { state };
-  }
-  public readonly state: State = { sort: [0, 0, 0, 0] };
+  public readonly state: State = {
+    sort: null
+  };
 
   public componentDidMount() {
-    this.createSort();
+    const {sort} = this.state;
+    const {defaultSort, contentToSort} = this.props;
+    if (sort === null) {
+      this.setState({ sort: this.createSort(contentToSort) });
+    }
+    if(sort === null && defaultSort &&  defaultSort.length === contentToSort.length){
+      this.setState({ sort: defaultSort });
+    }
   }
 
-  public sortFunc = (index: number) => {
-    const newSort = [0, 0, 0, 0];
-    newSort[index] = (this.state.sort[index] + 1) % 3;
-    if (newSort[index] === 0) {
-      newSort[index] += 1;
+  public sortFunc(index: number) {
+    const newSort = this.createSort(this.props.contentToSort);
+    if (newSort && this.state.sort) {
+      newSort[index] = (this.state.sort[index] + 1) % 3;
+      if (newSort[index] === 0) {
+        newSort[index] += 1;
+      }
+      this.setState({
+        sort: newSort
+      });
     }
-    this.setState({
-      sort: newSort
-    });
     // this.props.action(index);
-  };
+  }
 
   public render() {
     const { sort } = this.state;
     const { contentToSort } = this.props;
     return (
       <SortableHeader {...this.props}>
-        {contentToSort && this.renderHeaderTitle(contentToSort, sort)}
+        {contentToSort && sort && this.renderHeaderTitle(contentToSort, sort)}
       </SortableHeader>
     );
   }
 
-  private createSort = () => {
-    const { contentToSort } = this.props;
-    const { sort } = this.state;
-    if(contentToSort) {
-      for (
-        let i = sort.length;
-        i < this.renderHeaderTitle(contentToSort).length;
-        i++
-      ) {
-        sort.push(0);
-      }
-    }
-    return sort;
-  };
-
-  private renderHeaderTitle = (data: object[], sort?: number) =>
+  private renderHeaderTitle = (data: object[], sort?: number[]) =>
     data.map((d: any, index: number) => (
       <div key={d.id} onClick={() => this.sortFunc(d.id - 1)}>
         {sort && <SortArrows sort={sort[d.id - 1]} />}
         <span>{d.label}</span>
       </div>
     ));
+
+  private createSort(data: object[]) {
+    if (data) {
+      const newSort = [];
+      for (let i = 0; i < data.length; i++) {
+        newSort.push(0);
+      }
+      return newSort;
+    }
+    return null;
+  }
 }

@@ -44,7 +44,7 @@ var default_1 = /** @class */ (function (_super) {
                 }
             }
             _this.setState({ radio: newRadio });
-            _this.props.action(index);
+            //this.props.action(index);
         };
         _this.renderTimespanElm = function (data, customClass) {
             return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id, customClass: customClass }, d.label)); });

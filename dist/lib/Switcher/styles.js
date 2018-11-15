@@ -15,7 +15,7 @@ exports.Item = styled_components_1["default"].li.attrs({
     className: function (props) {
         return [props.active ? "active" : "inactive", props.customClass].join(" ");
     }
-})(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  height: 100%;\n  width: 100%;\n  flex: 1;\n  justify-content: center;\n  align-items: center;\n  text-transform: uppercase;\n  border-right: 1px solid lightgray;\n  ", ";\n  &:last-of-type {\n    border: none;\n  }\n"], ["\n  display: flex;\n  height: 100%;\n  width: 100%;\n  flex: 1;\n  justify-content: center;\n  align-items: center;\n  text-transform: uppercase;\n  border-right: 1px solid lightgray;\n  ",
+})(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: flex;\n  height: 100%;\n  width: 100%;\n  flex: 1;\n  justify-content: center;\n  align-items: center;\n  border-right: 1px solid lightgray;\n  ", ";\n  &:last-of-type {\n    border: none;\n  }\n"], ["\n  display: flex;\n  height: 100%;\n  width: 100%;\n  flex: 1;\n  justify-content: center;\n  align-items: center;\n  border-right: 1px solid lightgray;\n  ",
     ";\n  &:last-of-type {\n    border: none;\n  }\n"])), function (props) {
     return props.active
         ? styled_components_1.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n          background-color: black;\n          color: white;\n        "], ["\n          background-color: black;\n          color: white;\n        "]))) : styled_components_1.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n          background-color: white;\n          color: black;\n        "], ["\n          background-color: white;\n          color: black;\n        "])));

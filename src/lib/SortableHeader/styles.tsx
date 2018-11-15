@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface SortableHeader {
   customClass?: string;
-  contentToSort?: object[] | undefined;
+  contentToSort: object[];
 }
 
 export const SortableHeader = styled.div.attrs({
@@ -10,7 +10,7 @@ export const SortableHeader = styled.div.attrs({
 })`
   display: grid;
   grid-template-columns: ${(props: SortableHeader) =>
-    props.contentToSort && `${props.contentToSort.length}fr repeat(${props.contentToSort.length}, 1fr)`};  
+    props.contentToSort && `${props.contentToSort.length}fr repeat(${props.contentToSort.length - 1}, 1fr)`};  
   border: 1px solid lightgray;
   & > div {
     display: flex;
@@ -28,7 +28,7 @@ export const SortableHeader = styled.div.attrs({
 `;
 
 interface SortArrows {
-  sort?: 0 | 1 | 2 | undefined;
+  sort?: number | undefined;
 }
 
 export const SortArrows = styled.div`

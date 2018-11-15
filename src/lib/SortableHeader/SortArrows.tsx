@@ -4,7 +4,7 @@ import { SortDown, SortUp } from "../Icon/icons";
 import { SortArrows } from "./styles";
 
 interface Props {
-  sort?: 0 | 1 | 2 | undefined;
+  sort?: number | undefined;
 }
 
 interface State {}
