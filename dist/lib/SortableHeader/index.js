@@ -12,17 +12,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 exports.__esModule = true;
 var React = require("react");
 var SortArrows_1 = require("./SortArrows");
@@ -34,22 +23,25 @@ var default_1 = /** @class */ (function (_super) {
         _this.state = {
             sort: null
         };
-        _this.renderHeaderTitle = function (data, sort) {
-            return data.map(function (d, index) { return (React.createElement("div", { key: d.id, onClick: function () { return _this.sortFunc(d.id - 1); } },
-                sort && React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1] }),
-                React.createElement("span", null, d.label))); });
-        };
         return _this;
     }
     default_1.prototype.componentDidMount = function () {
         var sort = this.state.sort;
         var _a = this.props, defaultSort = _a.defaultSort, contentToSort = _a.contentToSort;
-        if (sort === null) {
+        if (!sort) {
             this.setState({ sort: this.createSort(contentToSort) });
         }
-        if (sort === null && defaultSort && defaultSort.length === contentToSort.length) {
+        else if (!sort &&
+            defaultSort &&
+            defaultSort.length === contentToSort.length) {
             this.setState({ sort: defaultSort });
         }
+    };
+    default_1.prototype.renderHeaderTitle = function (data, sort) {
+        var _this = this;
+        return data.map(function (d, index) { return (React.createElement("div", { key: d.id, onClick: function () { return _this.sortFunc(d.id - 1); } },
+            React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1] }),
+            React.createElement("span", null, d.label))); });
     };
     default_1.prototype.sortFunc = function (index) {
         var newSort = this.createSort(this.props.contentToSort);
@@ -62,22 +54,23 @@ var default_1 = /** @class */ (function (_super) {
                 sort: newSort
             });
         }
-        // this.props.action(index);
+        this.props.action(index);
+    };
+    default_1.prototype.createSort = function (data) {
+        var newSort = [];
+        for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+            var index = data_1[_i];
+            newSort.push(0);
+        }
+        return newSort;
     };
     default_1.prototype.render = function () {
         var sort = this.state.sort;
-        var contentToSort = this.props.contentToSort;
-        return (React.createElement(styles_1.SortableHeader, __assign({}, this.props), contentToSort && sort && this.renderHeaderTitle(contentToSort, sort)));
-    };
-    default_1.prototype.createSort = function (data) {
-        if (data) {
-            var newSort = [];
-            for (var i = 0; i < data.length; i++) {
-                newSort.push(0);
-            }
-            return newSort;
+        var _a = this.props, contentToSort = _a.contentToSort, customClass = _a.customClass;
+        if (!sort) {
+            return null;
         }
-        return null;
+        return (React.createElement(styles_1.SortableHeader, { customClass: customClass, contentToSort: contentToSort }, this.renderHeaderTitle(contentToSort, sort)));
     };
     return default_1;
 }(React.Component));

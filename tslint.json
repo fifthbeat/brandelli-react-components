@@ -1,10 +1,18 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier", "tslint-eslint-rules"],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
+      "node_modules/**/*.ts"
     ]
+  },
+  "rules": {
+    "interface-name": false,
+    "member-access": false,
+    "completed-docs": false,
+    "jsx-no-lambda": false,
+    "array-type": false,
+    "space-in-parens": [true, "never"],
+    "object-curly-spacing": [true, "never"]
   }
 }
