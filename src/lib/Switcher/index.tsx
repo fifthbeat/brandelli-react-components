@@ -1,9 +1,9 @@
 import "normalize.css";
 import * as React from "react";
-import { Item, Switcher } from "./styles";
+import {Item, Switcher} from "./styles";
 
 interface Props {
-  /** Generate the content of the radio switcher.*/
+  /** Generate the content of the radio switcher. */
   content: { id: number; label: string }[];
   /** Append some text at the bottom */
   footer?: string;
@@ -24,6 +24,25 @@ interface State {
 }
 
 export default class extends React.Component<Props, State> {
+  static getDerivedStateFromProps(props: Props, state: State): State {
+    if (
+      state.radio &&
+      props.elementActive &&
+      props.elementActive !== state.activeDefault
+    ) {
+      const newRadio: boolean[] = state.radio.map(
+        (d: boolean, i: number) => props.elementActive === i
+      );
+      return {
+        ...state,
+        activeDefault: props.elementActive,
+        radio: [...newRadio]
+      };
+    }
+    return {
+      ...state
+    };
+  }
   readonly state: State = {
     activeDefault: 0,
     radio: null
@@ -33,26 +52,13 @@ export default class extends React.Component<Props, State> {
     this.setState({radio: this.createRadio(this.props.content)});
   }
 
-  static getDerivedStateFromProps(props: Props, state: State): State {
-    if (state.radio && props.elementActive && props.elementActive !== state.activeDefault) {
-      const newRadio: boolean[] = state.radio.map((d: boolean, i: number) => props.elementActive === i);
-      return {
-        ...state,
-        radio: [...newRadio],
-        activeDefault: props.elementActive
-      };
-    }
-    return {
-      ...state
-    };
-  }
-
   createRadio(content: { id: number; label: string }[]): boolean[] {
-    const newRadio : boolean[] = [];
+    const newRadio: boolean[] = [];
     content.forEach(() => {
       newRadio.push(false);
     });
-    return newRadio;
+    newRadio[this.state.activeDefault] = true;
+    return [...newRadio];
   }
 
   selectItem(index: number): void {
@@ -65,7 +71,7 @@ export default class extends React.Component<Props, State> {
         newRadio[i] = false;
       }
     }
-    this.setState({ radio: newRadio });
+    this.setState({radio: newRadio});
     this.props.action(index);
   }
 
@@ -88,11 +94,15 @@ export default class extends React.Component<Props, State> {
   }
 
   render(): JSX.Element {
-    const { content, footer, header, customClass } = this.props;
+    const {content, footer, header, customClass} = this.props;
     return (
       <Switcher>
         {header && <header>{header}</header>}
-        <ul>{content && this.state.radio &&  this.renderTimespanElm(content, customClass)}</ul>
+        <ul>
+          {content &&
+            this.state.radio &&
+            this.renderTimespanElm(content, customClass)}
+        </ul>
         {footer && <footer>{footer}</footer>}
       </Switcher>
     );
