@@ -24,14 +24,12 @@ export default class extends React.Component<Props, State> {
   componentDidMount() {
     const {sort} = this.state;
     const {defaultSort, contentToSort} = this.props;
-    if (!sort) {
-      this.setState({sort: this.createSort(contentToSort)});
-    } else if (
-      !sort &&
+    if (!sort &&
       defaultSort &&
-      defaultSort.length === contentToSort.length
-    ) {
+      defaultSort.length === contentToSort.length) {
       this.setState({sort: defaultSort});
+    } else if (!sort) {
+      this.setState({sort: this.createSort(contentToSort)});
     }
   }
 
@@ -56,14 +54,15 @@ export default class extends React.Component<Props, State> {
         sort: newSort
       });
     }
-    this.props.action(index);
+    //this.props.action(index);
   }
 
   createSort(data: { id: number; label: string }[]): number[] {
-    const newSort = [];
-    for (const index of data) {
-      newSort.push(0);
-    }
+    const newSort: number[] = [];
+    data.forEach((data: { id: number; label: string }) => {
+      //NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
+      newSort.push(data.id - data.id);
+    });
     return newSort;
   }
 

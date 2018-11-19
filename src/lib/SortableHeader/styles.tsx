@@ -28,7 +28,7 @@ export const SortableHeader = styled.div.attrs({
 `;
 
 interface SortArrows {
-  sort: number;
+  sort: number | undefined;
 }
 
 export const SortArrows = styled.div`

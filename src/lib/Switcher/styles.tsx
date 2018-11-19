@@ -37,7 +37,7 @@ export const Switcher = styled.div.attrs({
 `;
 
 interface ItemProps {
-  active?: boolean;
+  active?: boolean | null;
   children: any;
   key: any;
   customClass?: string;
