@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 interface SortableHeader {
   customClass?: string;
-  contentToSort: object[];
+  contentToSort: Array<{ id: number; label: string }>;
 }
 
 export const SortableHeader = styled.div.attrs({
-  className: (props: any) => props.customClass
+  className: (props: any): string | undefined => props.customClass
 })`
   display: grid;
   grid-template-columns: ${(props: SortableHeader) =>
-    props.contentToSort && `${props.contentToSort.length}fr repeat(${props.contentToSort.length - 1}, 1fr)`};  
+    `40% repeat(${props.contentToSort.length - 1}, 1fr)`};
   border: 1px solid lightgray;
   & > div {
     display: flex;
@@ -28,7 +28,7 @@ export const SortableHeader = styled.div.attrs({
 `;
 
 interface SortArrows {
-  sort?: number | undefined;
+  sort: number;
 }
 
 export const SortArrows = styled.div`

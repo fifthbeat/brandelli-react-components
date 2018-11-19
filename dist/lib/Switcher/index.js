@@ -12,6 +12,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 exports.__esModule = true;
 require("normalize.css");
 var React = require("react");
@@ -21,53 +32,56 @@ var default_1 = /** @class */ (function (_super) {
     function default_1() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
-            radio: [true, false, false],
-            activeDefault: 0
-        };
-        _this.createRadio = function () {
-            var content = _this.props.content;
-            var radio = _this.state.radio;
-            for (var i = radio.length; i < _this.renderTimespanElm(content).length; i++) {
-                radio.push(false);
-            }
-            return radio;
-        };
-        _this.selectItem = function (index) {
-            var radio = _this.state.radio;
-            var newRadio = radio;
-            for (var i = 0; i < radio.length; i++) {
-                if (index == i) {
-                    radio[i] = true;
-                }
-                else {
-                    radio[i] = false;
-                }
-            }
-            _this.setState({ radio: newRadio });
-            //this.props.action(index);
-        };
-        _this.renderTimespanElm = function (data, customClass) {
-            return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function () { return _this.selectItem(index); }, active: _this.state.radio[index], key: d.id, customClass: customClass }, d.label)); });
+            activeDefault: 0,
+            radio: [true, false, false]
         };
         return _this;
     }
+    default_1.prototype.componentDidMount = function () {
+        this.createRadio();
+    };
     default_1.getDerivedStateFromProps = function (props, state) {
         if (props.elementActive && props.elementActive !== state.activeDefault) {
             var newRadio = state.radio;
             for (var i = 0; i < state.radio.length; i++) {
-                if (props.elementActive == i) {
+                if (props.elementActive === i) {
                     state.radio[i] = true;
                 }
                 else {
                     state.radio[i] = false;
                 }
             }
-            return { radio: newRadio, activeDefault: props.elementActive };
+            return __assign({}, state, { radio: newRadio, activeDefault: props.elementActive });
         }
-        return { state: state };
+        return __assign({}, state);
     };
-    default_1.prototype.componentDidMount = function () {
-        this.createRadio();
+    default_1.prototype.createRadio = function () {
+        var content = this.props.content;
+        var radio = this.state.radio;
+        for (var i = radio.length; i < content.length; i++) {
+            radio.push(false);
+        }
+        return radio;
+    };
+    default_1.prototype.selectItem = function (index) {
+        var newRadio = this.state.radio.slice();
+        // STEP: populate the
+        for (var i = 0; i < newRadio.length; i++) {
+            if (index === i) {
+                newRadio[i] = true;
+            }
+            else {
+                newRadio[i] = false;
+            }
+        }
+        this.setState({ radio: newRadio });
+        this.props.action(index);
+    };
+    default_1.prototype.renderTimespanElm = function (data, customClass) {
+        var _this = this;
+        return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function (event) {
+                return _this.selectItem(index);
+            }, active: _this.state.radio[index], key: d.id, customClass: customClass }, d.label)); });
     };
     default_1.prototype.render = function () {
         var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header, customClass = _a.customClass;
