@@ -28,13 +28,13 @@ var default_1 = /** @class */ (function (_super) {
     default_1.prototype.componentDidMount = function () {
         var sort = this.state.sort;
         var _a = this.props, defaultSort = _a.defaultSort, contentToSort = _a.contentToSort;
-        if (!sort) {
-            this.setState({ sort: this.createSort(contentToSort) });
-        }
-        else if (!sort &&
+        if (!sort &&
             defaultSort &&
             defaultSort.length === contentToSort.length) {
             this.setState({ sort: defaultSort });
+        }
+        else if (!sort) {
+            this.setState({ sort: this.createSort(contentToSort) });
         }
     };
     default_1.prototype.renderHeaderTitle = function (data, sort) {
@@ -54,14 +54,14 @@ var default_1 = /** @class */ (function (_super) {
                 sort: newSort
             });
         }
-        this.props.action(index);
+        //this.props.action(index);
     };
     default_1.prototype.createSort = function (data) {
         var newSort = [];
-        for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
-            var index = data_1[_i];
-            newSort.push(0);
-        }
+        data.forEach(function (data) {
+            //NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
+            newSort.push(data.id - data.id);
+        });
         return newSort;
     };
     default_1.prototype.render = function () {
