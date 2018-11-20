@@ -35,7 +35,7 @@ export default class extends React.Component<Props, State> {
     return (
       <Table headData={headData} content={content} customClass={customClass}>
         <tr>{this.renderHeader(headData)}</tr>
-        {this.renderContent(content)}
+        <tbody>{this.renderContent(content)}</tbody>
       </Table>
     );
   }
