@@ -26,7 +26,7 @@ var default_1 = /** @class */ (function (_super) {
     }
     default_1.prototype.render = function () {
         var _a = this.props, sort = _a.sort, arrowColor = _a.arrowColor;
-        return (React.createElement(styles_1.SortArrows, { arrowColor: arrowColor, sort: sort },
+        return (React.createElement(styles_1.SortArrows, null,
             React.createElement(Icon_1["default"], { img: icons_1.SortUp(), color: sort === 1 ? arrowColor : "grey", theme: "fill" }),
             React.createElement("div", null),
             React.createElement(Icon_1["default"], { img: icons_1.SortDown(), color: sort === 2 ? arrowColor : "grey", theme: "fill" })));
