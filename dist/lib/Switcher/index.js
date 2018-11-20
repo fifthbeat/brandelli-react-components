@@ -37,22 +37,25 @@ var default_1 = /** @class */ (function (_super) {
         };
         return _this;
     }
-    default_1.prototype.componentDidMount = function () {
-        this.setState({ radio: this.createRadio(this.props.content) });
-    };
     default_1.getDerivedStateFromProps = function (props, state) {
-        if (state.radio && props.elementActive && props.elementActive !== state.activeDefault) {
+        if (state.radio &&
+            props.elementActive &&
+            props.elementActive !== state.activeDefault) {
             var newRadio = state.radio.map(function (d, i) { return props.elementActive === i; });
-            return __assign({}, state, { radio: newRadio.slice(), activeDefault: props.elementActive });
+            return __assign({}, state, { activeDefault: props.elementActive, radio: newRadio.slice() });
         }
         return __assign({}, state);
+    };
+    default_1.prototype.componentDidMount = function () {
+        this.setState({ radio: this.createRadio(this.props.content) });
     };
     default_1.prototype.createRadio = function (content) {
         var newRadio = [];
         content.forEach(function () {
             newRadio.push(false);
         });
-        return newRadio;
+        newRadio[this.state.activeDefault] = true;
+        return newRadio.slice();
     };
     default_1.prototype.selectItem = function (index) {
         var newRadio = this.createRadio(this.props.content);
@@ -78,7 +81,9 @@ var default_1 = /** @class */ (function (_super) {
         var _a = this.props, content = _a.content, footer = _a.footer, header = _a.header, customClass = _a.customClass;
         return (React.createElement(styles_1.Switcher, null,
             header && React.createElement("header", null, header),
-            React.createElement("ul", null, content && this.state.radio && this.renderTimespanElm(content, customClass)),
+            React.createElement("ul", null, content &&
+                this.state.radio &&
+                this.renderTimespanElm(content, customClass)),
             footer && React.createElement("footer", null, footer)));
     };
     return default_1;

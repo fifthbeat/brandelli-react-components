@@ -1,7 +1,7 @@
 import "normalize.css";
 import * as React from "react";
 interface Props {
-    /** Generate the content of the radio switcher.*/
+    /** Generate the content of the radio switcher. */
     content: {
         id: number;
         label: string;
@@ -24,9 +24,9 @@ interface State {
     radio: boolean[] | null;
 }
 export default class extends React.Component<Props, State> {
+    static getDerivedStateFromProps(props: Props, state: State): State;
     readonly state: State;
     componentDidMount(): void;
-    static getDerivedStateFromProps(props: Props, state: State): State;
     createRadio(content: {
         id: number;
         label: string;
