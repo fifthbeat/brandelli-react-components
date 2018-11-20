@@ -29,7 +29,7 @@ export const SortableHeader = styled.div.attrs({
 `;
 
 interface SortArrows {
-  sort: number | undefined;
+  sort?: number | undefined;
   arrowColor: string;
 }
 
@@ -44,11 +44,5 @@ export const SortArrows = styled.div`
 
   & > div {
     height: 8px;
-    /* :first-of-type {
-      ${(props: SortArrows) => props.sort === 1 && props.arrowColor};
-    }
-    :last-of-type {
-      ${(props: SortArrows) => props.sort === 2 && props.arrowColor};
-    } */
   }
 `;

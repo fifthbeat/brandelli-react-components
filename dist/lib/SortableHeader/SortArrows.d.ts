@@ -1,6 +1,7 @@
 import * as React from "react";
 interface Props {
     sort?: number | undefined;
+    arrowColor: string;
 }
 interface State {
 }

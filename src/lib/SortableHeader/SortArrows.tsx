@@ -16,7 +16,7 @@ export default class extends React.Component<Props, State> {
   public render() {
     const {sort, arrowColor} = this.props;
     return (
-      <SortArrows arrowColor={arrowColor} sort={sort}>
+      <SortArrows>
         <Icon
           img={SortUp()}
           color={sort === 1 ? arrowColor : "grey"}
