@@ -32,7 +32,7 @@ var default_1 = /** @class */ (function (_super) {
         var _a = this.props, headData = _a.headData, content = _a.content, customClass = _a.customClass;
         return (React.createElement(styles_1.Table, { headData: headData, content: content, customClass: customClass },
             React.createElement("tr", null, this.renderHeader(headData)),
-            this.renderContent(content)));
+            React.createElement("tbody", null, this.renderContent(content))));
     };
     return default_1;
 }(React.Component));
