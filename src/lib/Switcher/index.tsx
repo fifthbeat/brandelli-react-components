@@ -10,7 +10,7 @@ interface Props {
   /** Append some text at the top */
   header?: string;
   /** Save index of active element */
-  action: (index: number) => void;
+  action: (id: string) => void;
   /** Default active element */
   elementActive?: number;
   /** Define the custom class name to give at component */
@@ -64,6 +64,7 @@ export default class extends React.Component<Props, State> {
   }
 
   selectItem(index: number): void {
+    const {content} = this.props;
     const newRadio: boolean[] = this.createRadio(this.props.content);
     // STEP: populate the
     for (let i = 0; i < newRadio.length; i++) {
@@ -74,7 +75,7 @@ export default class extends React.Component<Props, State> {
       }
     }
     this.setState({radio: newRadio});
-    this.props.action(index);
+    this.props.action(content[index].id);
   }
 
   renderTimespanElm(
@@ -84,7 +85,7 @@ export default class extends React.Component<Props, State> {
     return data.map((d: any, index: number) => (
       <Item
         onClick={(event: React.MouseEvent<HTMLLIElement>): void =>
-          this.selectItem(index)
+          this.selectItem(d.id)
         }
         active={this.state.radio && this.state.radio[index]}
         key={d.id}
