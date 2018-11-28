@@ -12,7 +12,7 @@ interface Props {
     /** Append some text at the top */
     header?: string;
     /** Save index of active element */
-    action: (index: number) => void;
+    action: (id: string) => void;
     /** Default active element */
     elementActive?: number;
     /** Define the custom class name to give at component */

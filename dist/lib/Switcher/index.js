@@ -58,6 +58,7 @@ var default_1 = /** @class */ (function (_super) {
         return newRadio.slice();
     };
     default_1.prototype.selectItem = function (index) {
+        var content = this.props.content;
         var newRadio = this.createRadio(this.props.content);
         // STEP: populate the
         for (var i = 0; i < newRadio.length; i++) {
@@ -69,12 +70,12 @@ var default_1 = /** @class */ (function (_super) {
             }
         }
         this.setState({ radio: newRadio });
-        this.props.action(index);
+        this.props.action(content[index].id);
     };
     default_1.prototype.renderTimespanElm = function (data, customClass) {
         var _this = this;
         return data.map(function (d, index) { return (React.createElement(styles_1.Item, { onClick: function (event) {
-                return _this.selectItem(index);
+                return _this.selectItem(d.id);
             }, active: _this.state.radio && _this.state.radio[index], key: d.id, customClass: customClass }, d.label)); });
     };
     default_1.prototype.render = function () {

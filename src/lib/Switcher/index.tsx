@@ -63,19 +63,16 @@ export default class extends React.Component<Props, State> {
     return [...newRadio];
   }
 
-  selectItem(index: number): void {
+  selectItem(id: string): void {
     const {content} = this.props;
-    const newRadio: boolean[] = this.createRadio(this.props.content);
-    // STEP: populate the
-    for (let i = 0; i < newRadio.length; i++) {
-      if (index === i) {
-        newRadio[i] = true;
-      } else {
-        newRadio[i] = false;
-      }
-    }
+    const newRadio: boolean[] = [];
+    // STEP: update status
+    content.forEach(
+      (d: { id: string; label: string; index: number }, i: number) =>
+        newRadio.push(d.id === id)
+    );
     this.setState({radio: newRadio});
-    this.props.action(content[index].id);
+    this.props.action(id);
   }
 
   renderTimespanElm(
