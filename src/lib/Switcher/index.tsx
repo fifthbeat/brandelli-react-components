@@ -4,7 +4,7 @@ import {Item, Switcher} from "./styles";
 
 interface Props {
   /** Generate the content of the radio switcher. */
-  content: { id: number; label: string }[];
+  content: { id: string; label: string; index: number }[];
   /** Append some text at the bottom */
   footer?: string;
   /** Append some text at the top */
@@ -52,7 +52,9 @@ export default class extends React.Component<Props, State> {
     this.setState({radio: this.createRadio(this.props.content)});
   }
 
-  createRadio(content: { id: number; label: string }[]): boolean[] {
+  createRadio(
+    content: { id: string; label: string; index: number }[]
+  ): boolean[] {
     const newRadio: boolean[] = [];
     content.forEach(() => {
       newRadio.push(false);
@@ -76,7 +78,7 @@ export default class extends React.Component<Props, State> {
   }
 
   renderTimespanElm(
-    data: Array<{ id: number; label: string }>,
+    data: Array<{ id: string; label: string; index: number }>,
     customClass?: string
   ): JSX.Element[] {
     return data.map((d: any, index: number) => (
