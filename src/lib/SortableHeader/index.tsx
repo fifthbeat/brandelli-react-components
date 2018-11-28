@@ -60,9 +60,8 @@ export default class extends React.Component<Props, State> {
         sort: newSort
       });
     }
-    if (this.state.sort) {
-      this.props.action([...this.state.sort]);
-    }
+    // NOTE: callback function
+    this.props.action([...newSort]);
   }
 
   createSort(data: { id: number; label: string }[]): number[] {
