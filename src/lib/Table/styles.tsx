@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export interface Table {
-  headData: { id: number; label: string }[];
-  content: { id: number; data: { id: number; label: string }[] }[];
+  headData: { id: string; label: string }[];
+  content: { id: string; data: { id: string; label: string }[] }[];
   customClass?: string;
 }
 

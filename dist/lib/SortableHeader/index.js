@@ -52,9 +52,8 @@ var default_1 = /** @class */ (function (_super) {
                 sort: newSort
             });
         }
-        if (this.state.sort) {
-            this.props.action(this.state.sort.slice());
-        }
+        // NOTE: callback function
+        this.props.action(newSort.slice());
     };
     default_1.prototype.createSort = function (data) {
         var newSort = [];
