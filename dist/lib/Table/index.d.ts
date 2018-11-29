@@ -2,14 +2,14 @@ import * as React from "react";
 interface Props {
     /** Define data to show in the header of table */
     headData: {
-        id: number;
+        id: string;
         label: string;
     }[];
     /** Define data to show in the body of table */
     content: {
-        id: number;
+        id: string;
         data: {
-            id: number;
+            id: string;
             label: string;
         }[];
     }[];
@@ -21,13 +21,13 @@ interface State {
 export default class extends React.Component<Props, State> {
     readonly state: State;
     renderHeader(headData: {
-        id: number;
+        id: string;
         label: string;
     }[]): JSX.Element[];
     renderContent(content: {
-        id: number;
+        id: string;
         data: {
-            id: number;
+            id: string;
             label: string;
         }[];
     }[]): JSX.Element[];

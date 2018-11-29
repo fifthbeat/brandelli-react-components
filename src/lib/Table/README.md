@@ -14,6 +14,15 @@ Component example:
     {id: '3', label: 'Title3'},
     {id: '4', label: 'Title4'},
   ]}
+  firstRow={{
+    id: '1',
+    data: [
+      {id: '1', label: 'PRIMA'},
+      {id: '2', label: 'PRIMA2'},
+      {id: '3', label: 'PRIMA3'},
+      {id: '4', label: 'PRIMA4'},
+    ],
+  }}
   content={[
     {
       id: '1',

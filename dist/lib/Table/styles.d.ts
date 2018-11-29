@@ -1,13 +1,13 @@
 /// <reference types="react" />
 export interface Table {
     headData: {
-        id: number;
+        id: string;
         label: string;
     }[];
     content: {
-        id: number;
+        id: string;
         data: {
-            id: number;
+            id: string;
             label: string;
         }[];
     }[];
