@@ -1,9 +1,15 @@
 import styled, {css} from "styled-components";
 
 export interface Table {
-  headData: { id: string; label: string }[];
-  firstRow?: { id: string; data: { id: string; label: string }[] };
-  content: { id: string; data: { id: string; label: string }[] }[];
+  headData: { id: string; label: string; color?: string }[];
+  firstRow?: {
+    id: string;
+    data: { id: string; label: string; color?: string }[];
+  };
+  content: {
+    id: string;
+    data: { id: string; label: string; color?: string }[];
+  }[];
   customClass?: string;
 }
 
@@ -64,4 +70,28 @@ export const FirstElm = styled.tr`
   border-bottom: 1px solid black;
   padding: 0 4px;
   text-transform: uppercase;
+`;
+
+export interface ContentCell {
+  color?: string;
+}
+
+export const ContentCell = styled.td`
+  color: ${(props: ContentCell) => (props.color ? props.color : "inherit")};
+`;
+
+export interface HeaderCell {
+  color?: string;
+}
+
+export const HeaderCell = styled.th`
+  color: ${(props: HeaderCell) => (props.color ? props.color : "inherit")};
+`;
+
+export interface FirstElmCell {
+  color?: string;
+}
+
+export const FirstElmCell = styled.td`
+  color: ${(props: FirstElmCell) => (props.color ? props.color : "inherit")};
 `;

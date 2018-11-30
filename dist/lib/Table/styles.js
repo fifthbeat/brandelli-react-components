@@ -18,8 +18,8 @@ exports.Table = styled_components_1["default"].table.attrs({
     return props.firstRow
         ? styled_components_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n              padding: 0 12px;\n            "], ["\n              padding: 0 12px;\n            "]))) : styled_components_1.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n              padding: 0 4px;\n            "], ["\n              padding: 0 4px;\n            "])));
 });
-exports.FirstElm = styled_components_1["default"].tr(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: ", ";\n  height: 32px;\n  align-items: center;\n  border-bottom: 1px solid black;\n  padding: 0 4px;\n"], ["\n  display: grid;\n  grid-template-columns: ",
-    ";\n  height: 32px;\n  align-items: center;\n  border-bottom: 1px solid black;\n  padding: 0 4px;\n"])), function (props) {
+exports.FirstElm = styled_components_1["default"].tr(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: ", ";\n  height: 32px;\n  align-items: center;\n  border-bottom: 1px solid black;\n  padding: 0 4px;\n  text-transform: uppercase;\n"], ["\n  display: grid;\n  grid-template-columns: ",
+    ";\n  height: 32px;\n  align-items: center;\n  border-bottom: 1px solid black;\n  padding: 0 4px;\n  text-transform: uppercase;\n"])), function (props) {
     return "3fr repeat(" + (props.headData.length - 1) + ", 1fr)";
 });
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4;

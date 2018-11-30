@@ -12,7 +12,7 @@ Component example:
     {id: '1', label: 'Title1'},
     {id: '2', label: 'Title2'},
     {id: '3', label: 'Title3'},
-    {id: '4', label: 'Title4'},
+    {id: '4', label: 'Title4', color: 'tomato'},
   ]}
   firstRow={{
     id: '1',
@@ -30,7 +30,7 @@ Component example:
         {id: '1', label: 'prova'},
         {id: '2', label: 'Title2'},
         {id: '3', label: 'Title3'},
-        {id: '4', label: 'Title4'},
+        {id: '4', label: 'Title4', color: 'tomato'},
       ],
     },
     {
