@@ -28,10 +28,15 @@ var default_1 = /** @class */ (function (_super) {
     default_1.prototype.renderContent = function (content) {
         return content.map(function (d, i) { return (React.createElement("tr", { key: d.id }, d.data.map(function (f) { return (React.createElement("td", { key: f.id }, f.label)); }))); });
     };
+    default_1.prototype.renderFirstRow = function (content) {
+        return (React.createElement(styles_1.FirstElm, { key: content.id, headData: content.data }, content.data.map(function (f) { return (React.createElement("td", { key: f.id }, f.label)); })));
+    };
     default_1.prototype.render = function () {
-        var _a = this.props, headData = _a.headData, content = _a.content, customClass = _a.customClass;
-        return (React.createElement(styles_1.Table, { headData: headData, content: content, customClass: customClass },
-            React.createElement("tr", null, this.renderHeader(headData)),
+        var _a = this.props, headData = _a.headData, content = _a.content, customClass = _a.customClass, firstRow = _a.firstRow;
+        return (React.createElement(styles_1.Table, { headData: headData, content: content, customClass: customClass, firstRow: firstRow },
+            React.createElement("thead", null,
+                React.createElement("tr", null, this.renderHeader(headData)),
+                firstRow && this.renderFirstRow(firstRow)),
             React.createElement("tbody", null, this.renderContent(content))));
     };
     return default_1;

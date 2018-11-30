@@ -63,4 +63,5 @@ export const FirstElm = styled.tr`
   align-items: center;
   border-bottom: 1px solid black;
   padding: 0 4px;
+  text-transform: uppercase;
 `;

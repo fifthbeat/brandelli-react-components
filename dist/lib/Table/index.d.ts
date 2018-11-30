@@ -5,6 +5,14 @@ interface Props {
         id: string;
         label: string;
     }[];
+    /** Define if there is first row of a table and the data inside it */
+    firstRow?: {
+        id: string;
+        data: {
+            id: string;
+            label: string;
+        }[];
+    };
     /** Define data to show in the body of table */
     content: {
         id: string;
@@ -31,6 +39,13 @@ export default class extends React.Component<Props, State> {
             label: string;
         }[];
     }[]): JSX.Element[];
+    renderFirstRow(content: {
+        id: string;
+        data: {
+            id: string;
+            label: string;
+        }[];
+    }): JSX.Element;
     render(): JSX.Element;
 }
 export {};
