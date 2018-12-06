@@ -3,12 +3,14 @@ export interface Table {
     headData: {
         id: string;
         label: string;
+        color?: string;
     }[];
     firstRow?: {
         id: string;
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     };
     content: {
@@ -16,6 +18,7 @@ export interface Table {
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     }[];
     customClass?: string;
@@ -32,3 +35,15 @@ export interface FirstElm {
     }[];
 }
 export declare const FirstElm: import("styled-components").StyledComponentClass<import("react").ClassAttributes<HTMLTableRowElement> & import("react").HTMLAttributes<HTMLTableRowElement> & FirstElm, any, import("react").ClassAttributes<HTMLTableRowElement> & import("react").HTMLAttributes<HTMLTableRowElement> & FirstElm>;
+export interface ContentCell {
+    color?: string;
+}
+export declare const ContentCell: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>, any, import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>>;
+export interface HeaderCell {
+    color?: string;
+}
+export declare const HeaderCell: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>, any, import("react").DetailedHTMLProps<import("react").ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>>;
+export interface FirstElmCell {
+    color?: string;
+}
+export declare const FirstElmCell: import("styled-components").StyledComponentClass<import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>, any, import("react").DetailedHTMLProps<import("react").TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>>;

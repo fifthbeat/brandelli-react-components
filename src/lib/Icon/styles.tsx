@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 interface IconProps {
   label?: { pos: string; text: string };
@@ -8,9 +8,9 @@ interface IconProps {
   customClass?: string;
 }
 
-export const Icon = styled.div.attrs({
-  className: (props: any) => props.customClass
-})`
+export const Icon = styled.div.attrs((props: any) => ({
+  className: props.customClass
+}))`
   display: grid;
   grid-template-rows: ${(props: IconProps) => {
     switch (props.label && props.label.pos) {

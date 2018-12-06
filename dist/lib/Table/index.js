@@ -23,13 +23,13 @@ var default_1 = /** @class */ (function (_super) {
         return _this;
     }
     default_1.prototype.renderHeader = function (headData) {
-        return headData.map(function (d, i) { return React.createElement("th", { key: d.id }, d.label); });
+        return headData.map(function (d, i) { return (React.createElement(styles_1.HeaderCell, { key: d.id, color: d.color }, d.label)); });
     };
     default_1.prototype.renderContent = function (content) {
-        return content.map(function (d, i) { return (React.createElement("tr", { key: d.id }, d.data.map(function (f) { return (React.createElement("td", { key: f.id }, f.label)); }))); });
+        return content.map(function (d, i) { return (React.createElement("tr", { key: d.id }, d.data.map(function (f) { return (React.createElement(styles_1.ContentCell, { key: f.id, color: f.color }, f.label)); }))); });
     };
     default_1.prototype.renderFirstRow = function (content) {
-        return (React.createElement(styles_1.FirstElm, { key: content.id, headData: content.data }, content.data.map(function (f) { return (React.createElement("td", { key: f.id }, f.label)); })));
+        return (React.createElement(styles_1.FirstElm, { key: content.id, headData: content.data }, content.data.map(function (f) { return (React.createElement(styles_1.FirstElmCell, { key: f.id, color: f.color }, f.label)); })));
     };
     default_1.prototype.render = function () {
         var _a = this.props, headData = _a.headData, content = _a.content, customClass = _a.customClass, firstRow = _a.firstRow;

@@ -22,4 +22,7 @@ exports.FirstElm = styled_components_1["default"].tr(templateObject_4 || (templa
     ";\n  height: 32px;\n  align-items: center;\n  border-bottom: 1px solid black;\n  padding: 0 4px;\n  text-transform: uppercase;\n"])), function (props) {
     return "3fr repeat(" + (props.headData.length - 1) + ", 1fr)";
 });
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
+exports.ContentCell = styled_components_1["default"].td(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return (props.color ? props.color : "inherit"); });
+exports.HeaderCell = styled_components_1["default"].th(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return (props.color ? props.color : "inherit"); });
+exports.FirstElmCell = styled_components_1["default"].td(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  color: ", ";\n"], ["\n  color: ", ";\n"])), function (props) { return (props.color ? props.color : "inherit"); });
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7;

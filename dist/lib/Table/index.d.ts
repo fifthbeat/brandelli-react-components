@@ -4,6 +4,7 @@ interface Props {
     headData: {
         id: string;
         label: string;
+        color?: string;
     }[];
     /** Define if there is first row of a table and the data inside it */
     firstRow?: {
@@ -11,6 +12,7 @@ interface Props {
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     };
     /** Define data to show in the body of table */
@@ -19,6 +21,7 @@ interface Props {
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     }[];
     /** Define the custom class name to give at component */
@@ -31,12 +34,14 @@ export default class extends React.Component<Props, State> {
     renderHeader(headData: {
         id: string;
         label: string;
+        color?: string;
     }[]): JSX.Element[];
     renderContent(content: {
         id: string;
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     }[]): JSX.Element[];
     renderFirstRow(content: {
@@ -44,6 +49,7 @@ export default class extends React.Component<Props, State> {
         data: {
             id: string;
             label: string;
+            color?: string;
         }[];
     }): JSX.Element;
     render(): JSX.Element;

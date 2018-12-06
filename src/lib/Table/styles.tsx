@@ -13,9 +13,9 @@ export interface Table {
   customClass?: string;
 }
 
-export const Table = styled.table.attrs({
-  className: (props: any): string | undefined => props.customClass
-})`
+export const Table = styled.table.attrs((props: any) => ({
+  className: props.customClass
+}))`
   display: flex;
   flex-direction: column;
   & > thead {

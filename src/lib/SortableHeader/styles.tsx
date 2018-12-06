@@ -6,9 +6,9 @@ interface SortableHeader {
   contentToSort: Array<{ id: number; label: string }>;
 }
 
-export const SortableHeader = styled.div.attrs({
-  className: (props: any): string | undefined => props.customClass
-})`
+export const SortableHeader = styled.div.attrs((props: any) => ({
+  className: props.customClass
+}))`
   display: grid;
   grid-template-columns: ${(props: SortableHeader) =>
     `40% repeat(${props.contentToSort.length - 1}, 1fr)`};
