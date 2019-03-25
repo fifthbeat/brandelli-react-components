@@ -1,11 +1,11 @@
 import "normalize.css";
 import * as React from "react";
 interface Props {
-    /** Generate the content of the radio switcher.*/
-    content: Array<{
+    /** Generate the content of the radio switcher. */
+    content: {
         id: number;
         label: string;
-    }>;
+    }[];
     /** Append some text at the bottom */
     footer?: string;
     /** Append some text at the top */
@@ -21,13 +21,16 @@ interface State {
     /** Default element active */
     activeDefault: number;
     /** Define the active scope */
-    radio: boolean[];
+    radio: boolean[] | null;
 }
 export default class extends React.Component<Props, State> {
+    static getDerivedStateFromProps(props: Props, state: State): State;
     readonly state: State;
     componentDidMount(): void;
-    static getDerivedStateFromProps(props: Props, state: State): State;
-    createRadio(): boolean[];
+    createRadio(content: {
+        id: number;
+        label: string;
+    }[]): boolean[];
     selectItem(index: number): void;
     renderTimespanElm(data: Array<{
         id: number;
