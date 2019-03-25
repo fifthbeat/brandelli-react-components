@@ -8,3 +8,5 @@ var Icon_1 = require("./lib/Icon");
 exports.Icon = Icon_1["default"];
 var SortableHeader_1 = require("./lib/SortableHeader");
 exports.SortableHeader = SortableHeader_1["default"];
+var Table_1 = require("./lib/Table");
+exports.Table = Table_1["default"];

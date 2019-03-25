@@ -3,15 +3,16 @@ import * as React from "react";
 interface Props {
     /** Generate the content of the radio switcher. */
     content: {
-        id: number;
+        id: string;
         label: string;
+        index: number;
     }[];
     /** Append some text at the bottom */
     footer?: string;
     /** Append some text at the top */
     header?: string;
     /** Save index of active element */
-    action: (index: number) => void;
+    action: (id: string) => void;
     /** Default active element */
     elementActive?: number;
     /** Define the custom class name to give at component */
@@ -28,13 +29,15 @@ export default class extends React.Component<Props, State> {
     readonly state: State;
     componentDidMount(): void;
     createRadio(content: {
-        id: number;
+        id: string;
         label: string;
+        index: number;
     }[]): boolean[];
-    selectItem(index: number): void;
+    selectItem(id: string): void;
     renderTimespanElm(data: Array<{
-        id: number;
+        id: string;
         label: string;
+        index: number;
     }>, customClass?: string): JSX.Element[];
     render(): JSX.Element;
 }

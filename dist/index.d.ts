@@ -6,3 +6,5 @@ import Icon from "./lib/Icon";
 export { Icon };
 import SortableHeader from "./lib/SortableHeader";
 export { SortableHeader };
+import Table from './lib/Table';
+export { Table };

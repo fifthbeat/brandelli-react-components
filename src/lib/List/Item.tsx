@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Item } from "./styles";
+import {Item} from "./styles";
 export default class extends React.Component<any, {}> {
   constructor(props: any) {
     super(props);
@@ -7,7 +7,7 @@ export default class extends React.Component<any, {}> {
   }
 
   public render() {
-    const { content } = this.props;
+    const {content} = this.props;
     return (
       <Item key={content.id}>
         <span>{content.label}</span>

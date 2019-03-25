@@ -35,10 +35,10 @@ var default_1 = /** @class */ (function (_super) {
             this.setState({ sort: this.createSort(contentToSort) });
         }
     };
-    default_1.prototype.renderHeaderTitle = function (data, sort) {
+    default_1.prototype.renderHeaderTitle = function (data, sort, arrowColor) {
         var _this = this;
-        return data.map(function (d, index) { return (React.createElement("div", { key: d.id, onClick: function () { return _this.sortFunc(d.id - 1); } },
-            React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1] }),
+        return data.map(function (d, index) { return (React.createElement("div", { key: d.id, onClick: function () { return d.label !== "" && _this.sortFunc(d.id - 1); } },
+            d.label !== "" && (React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1], arrowColor: arrowColor })),
             React.createElement("span", null, d.label))); });
     };
     default_1.prototype.sortFunc = function (index) {
@@ -52,23 +52,24 @@ var default_1 = /** @class */ (function (_super) {
                 sort: newSort
             });
         }
-        // this.props.action(index);
+        // NOTE: callback function
+        this.props.action(newSort.slice());
     };
     default_1.prototype.createSort = function (data) {
         var newSort = [];
-        data.forEach(function (d) {
+        data.forEach(function (data) {
             // NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
-            newSort.push(d.id - d.id);
+            newSort.push(data.id - data.id);
         });
         return newSort;
     };
     default_1.prototype.render = function () {
         var sort = this.state.sort;
-        var _a = this.props, contentToSort = _a.contentToSort, customClass = _a.customClass;
+        var _a = this.props, contentToSort = _a.contentToSort, customClass = _a.customClass, arrowColor = _a.arrowColor;
         if (!sort) {
             return null;
         }
-        return (React.createElement(styles_1.SortableHeader, { customClass: customClass, contentToSort: contentToSort }, this.renderHeaderTitle(contentToSort, sort)));
+        return (React.createElement(styles_1.SortableHeader, { customClass: customClass, contentToSort: contentToSort, arrowColor: arrowColor }, this.renderHeaderTitle(contentToSort, sort, arrowColor)));
     };
     return default_1;
 }(React.Component));

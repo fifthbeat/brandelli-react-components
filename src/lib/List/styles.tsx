@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 // import colors from '../../constants/colors'
 // import breakpoints from '../../constants/breakpoints'
@@ -14,9 +14,9 @@ interface ListProps {
   customClass?: string;
 }
 
-export const List = styled.div.attrs({
-  className: (props: any) => props.customClass
-})`
+export const List = styled.div.attrs((props: any) => ({
+  className: props.customClass
+}))`
   height: 100%;
   box-sizing: border-box;
   ${(props: ListProps) =>
@@ -90,9 +90,9 @@ export const List = styled.div.attrs({
   }
 `;
 
-export const Item = styled.li.attrs({
-  className: (props: any) => props.className
-})`
+export const Item = styled.li.attrs((props: any) => ({
+  className: props.customClass
+}))`
   list-style-type: none;
   display: flex;
   flex-direction: row;

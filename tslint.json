@@ -12,6 +12,7 @@
     "completed-docs": false,
     "jsx-no-lambda": false,
     "array-type": false,
+    "no-empty-interface": false,
     "space-in-parens": [true, "never"],
     "object-curly-spacing": [true, "never"]
   }

@@ -1,12 +1,12 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 // import colors from '../../constants/colors'
 // import breakpoints from '../../constants/breakpoints'
 // import fonts from '../../constants/fonts'
 
-export const Switcher = styled.div.attrs({
-  className: (props: any) => props.className
-})`
+export const Switcher = styled.div.attrs((props: any) => ({
+  className: props.customClass
+}))`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -43,10 +43,9 @@ interface ItemProps {
   customClass?: string;
 }
 
-export const Item = styled.li.attrs({
-  className: (props: any) =>
-    [props.active ? "active" : "inactive", props.customClass].join(" ")
-})`
+export const Item = styled.li.attrs((props: any) => ({
+  className: [props.active ? "active" : "inactive", props.customClass].join(" ")
+}))`
   display: flex;
   height: 100%;
   width: 100%;

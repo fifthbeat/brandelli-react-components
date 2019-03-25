@@ -1,7 +1,7 @@
 import "normalize.css";
 import * as React from "react";
 import Item from "./Item";
-import { List } from "./styles";
+import {List} from "./styles";
 
 export interface ListProps {
   /** Data on which the list will iterate. Default content should be: `[{id: string, label: string}]` */
@@ -31,7 +31,7 @@ export default class extends React.Component<ListProps, {}> {
     content.map((d: any) => <li key={d.id}>{d.label}</li>);
 
   public render() {
-    const { content, renderItem } = this.props;
+    const {content, renderItem} = this.props;
     return (
       <List {...this.props}>
         <ul>

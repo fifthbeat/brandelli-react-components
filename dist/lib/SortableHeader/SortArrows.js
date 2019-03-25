@@ -25,11 +25,11 @@ var default_1 = /** @class */ (function (_super) {
         return _this;
     }
     default_1.prototype.render = function () {
-        var sort = this.props.sort;
-        return (React.createElement(styles_1.SortArrows, { sort: sort },
-            React.createElement(Icon_1["default"], { img: icons_1.SortUp(), color: sort === 1 ? "green" : "grey", theme: "fill" }),
+        var _a = this.props, sort = _a.sort, arrowColor = _a.arrowColor;
+        return (React.createElement(styles_1.SortArrows, null,
+            React.createElement(Icon_1["default"], { img: icons_1.SortUp(), color: sort === 1 ? arrowColor : "grey", theme: "fill" }),
             React.createElement("div", null),
-            React.createElement(Icon_1["default"], { img: icons_1.SortDown(), color: sort === 2 ? "green" : "grey", theme: "fill" })));
+            React.createElement(Icon_1["default"], { img: icons_1.SortDown(), color: sort === 2 ? arrowColor : "grey", theme: "fill" })));
     };
     return default_1;
 }(React.Component));

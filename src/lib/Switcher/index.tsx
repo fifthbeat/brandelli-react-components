@@ -1,16 +1,16 @@
-import "normalize.css";
-import * as React from "react";
-import {Item, Switcher} from "./styles";
+import 'normalize.css';
+import * as React from 'react';
+import {Item, Switcher} from './styles';
 
 interface Props {
   /** Generate the content of the radio switcher. */
-  content: { id: number; label: string }[];
+  content: {id: string; label: string; index: number}[];
   /** Append some text at the bottom */
   footer?: string;
   /** Append some text at the top */
   header?: string;
   /** Save index of active element */
-  action: (index: number) => void;
+  action: (id: string) => void;
   /** Default active element */
   elementActive?: number;
   /** Define the custom class name to give at component */
@@ -25,64 +25,49 @@ interface State {
 
 export default class extends React.Component<Props, State> {
   static getDerivedStateFromProps(props: Props, state: State): State {
-    if (
-      state.radio &&
-      props.elementActive &&
-      props.elementActive !== state.activeDefault
-    ) {
-      const newRadio: boolean[] = state.radio.map(
-        (d: boolean, i: number) => props.elementActive === i
-      );
+    if (state.radio && props.elementActive && props.elementActive !== state.activeDefault) {
+      const newRadio: boolean[] = state.radio.map((d: boolean, i: number) => props.elementActive === i);
       return {
         ...state,
         activeDefault: props.elementActive,
-        radio: [...newRadio]
+        radio: [...newRadio],
       };
     }
     return {
-      ...state
+      ...state,
     };
   }
   readonly state: State = {
     activeDefault: 0,
-    radio: null
+    radio: null,
   };
 
   componentDidMount() {
     this.setState({radio: this.createRadio(this.props.content)});
   }
 
-  createRadio(content: { id: number; label: string }[]): boolean[] {
+  createRadio(content: {id: string; label: string; index: number}[]): boolean[] {
     const newRadio: boolean[] = [];
     content.forEach(() => {
       newRadio.push(false);
     });
-    return newRadio;
+    newRadio[this.state.activeDefault] = true;
+    return [...newRadio];
   }
 
-  selectItem(index: number): void {
-    const newRadio: boolean[] = this.createRadio(this.props.content);
-    // STEP: populate the
-    for (let i = 0; i < newRadio.length; i++) {
-      if (index === i) {
-        newRadio[i] = true;
-      } else {
-        newRadio[i] = false;
-      }
-    }
+  selectItem(id: string): void {
+    const {content} = this.props;
+    const newRadio: boolean[] = [];
+    // STEP: update status
+    content.forEach((d: {id: string; label: string; index: number}, i: number) => newRadio.push(d.id === id));
     this.setState({radio: newRadio});
-    this.props.action(index);
+    this.props.action(id);
   }
 
-  renderTimespanElm(
-    data: Array<{ id: number; label: string }>,
-    customClass?: string
-  ): JSX.Element[] {
+  renderTimespanElm(data: Array<{id: string; label: string; index: number}>, customClass?: string): JSX.Element[] {
     return data.map((d: any, index: number) => (
       <Item
-        onClick={(event: React.MouseEvent<HTMLLIElement>): void =>
-          this.selectItem(index)
-        }
+        onClick={(event: React.MouseEvent<HTMLLIElement>): void => this.selectItem(d.id)}
         active={this.state.radio && this.state.radio[index]}
         key={d.id}
         customClass={customClass}
@@ -97,11 +82,7 @@ export default class extends React.Component<Props, State> {
     return (
       <Switcher>
         {header && <header>{header}</header>}
-        <ul>
-          {content &&
-            this.state.radio &&
-            this.renderTimespanElm(content, customClass)}
-        </ul>
+        <ul>{content && this.state.radio && this.renderTimespanElm(content, customClass)}</ul>
         {footer && <footer>{footer}</footer>}
       </Switcher>
     );

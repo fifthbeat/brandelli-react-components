@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 interface SortableHeader {
   customClass?: string;
+  arrowColor: string;
   contentToSort: Array<{ id: number; label: string }>;
 }
 
-export const SortableHeader = styled.div.attrs({
-  className: (props: any): string | undefined => props.customClass
-})`
+export const SortableHeader = styled.div.attrs((props: any) => ({
+  className: props.customClass
+}))`
   display: grid;
   grid-template-columns: ${(props: SortableHeader) =>
     `40% repeat(${props.contentToSort.length - 1}, 1fr)`};
@@ -28,7 +29,8 @@ export const SortableHeader = styled.div.attrs({
 `;
 
 interface SortArrows {
-  sort: number | undefined;
+  sort?: number | undefined;
+  arrowColor: string;
 }
 
 export const SortArrows = styled.div`
@@ -42,11 +44,5 @@ export const SortArrows = styled.div`
 
   & > div {
     height: 8px;
-    :first-of-type {
-      ${(props: SortArrows) => props.sort === 1 && `pink`};
-    }
-    :last-of-type {
-      ${(props: SortArrows) => props.sort === 2 && `pink`};
-    }
   }
 `;

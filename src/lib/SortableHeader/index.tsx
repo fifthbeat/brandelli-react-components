@@ -4,13 +4,15 @@ import {SortableHeader} from "./styles";
 
 interface Props {
   /** Spit sort array out of component */
-  action: (index: number) => void;
+  action: (sort: number[]) => void;
   /** Define the column title */
   contentToSort: { id: number; label: string }[];
   /** Define the custom class name to give at component */
   customClass?: string | undefined;
   /** Define the default sort order */
   defaultSort?: number[];
+  /** Define active arrow color */
+  arrowColor: string;
 }
 interface State {
   sort: number[] | null;
@@ -31,10 +33,16 @@ export default class extends React.Component<Props, State> {
     }
   }
 
-  renderHeaderTitle(data: object[], sort: number[]): JSX.Element[] {
+  renderHeaderTitle(
+    data: object[],
+    sort: number[],
+    arrowColor: string
+  ): JSX.Element[] {
     return data.map((d: any, index: number) => (
-      <div key={d.id} onClick={() => this.sortFunc(d.id - 1)}>
-        <SortArrows sort={sort[d.id - 1]} />
+      <div key={d.id} onClick={() => d.label !== "" && this.sortFunc(d.id - 1)}>
+        {d.label !== "" && (
+          <SortArrows sort={sort[d.id - 1]} arrowColor={arrowColor} />
+        )}
         <span>{d.label}</span>
       </div>
     ));
@@ -52,27 +60,32 @@ export default class extends React.Component<Props, State> {
         sort: newSort
       });
     }
-    // this.props.action(index);
+    // NOTE: callback function
+    this.props.action([...newSort]);
   }
 
   createSort(data: { id: number; label: string }[]): number[] {
     const newSort: number[] = [];
-    data.forEach((d: { id: number; label: string }) => {
+    data.forEach((data: { id: number; label: string }) => {
       // NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
-      newSort.push(d.id - d.id);
+      newSort.push(data.id - data.id);
     });
     return newSort;
   }
 
   render() {
     const {sort} = this.state;
-    const {contentToSort, customClass} = this.props;
+    const {contentToSort, customClass, arrowColor} = this.props;
     if (!sort) {
       return null;
     }
     return (
-      <SortableHeader customClass={customClass} contentToSort={contentToSort}>
-        {this.renderHeaderTitle(contentToSort, sort)}
+      <SortableHeader
+        customClass={customClass}
+        contentToSort={contentToSort}
+        arrowColor={arrowColor}
+      >
+        {this.renderHeaderTitle(contentToSort, sort, arrowColor)}
       </SortableHeader>
     );
   }
