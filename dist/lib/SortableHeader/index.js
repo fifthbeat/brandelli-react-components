@@ -37,8 +37,8 @@ var default_1 = /** @class */ (function (_super) {
     };
     default_1.prototype.renderHeaderTitle = function (data, sort, arrowColor) {
         var _this = this;
-        return data.map(function (d, index) { return (React.createElement("div", { key: d.id, onClick: function () { return d.label !== "" && _this.sortFunc(d.id - 1); } },
-            d.label !== "" && (React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1], arrowColor: arrowColor })),
+        return data.map(function (d) { return (React.createElement("div", { key: d.id, onClick: function () { return d.label !== '' && d.hideSort !== true && _this.sortFunc(d.id - 1); } },
+            d.label !== '' && d.hideSort !== true && React.createElement(SortArrows_1["default"], { sort: sort[d.id - 1], arrowColor: arrowColor }),
             React.createElement("span", null, d.label))); });
     };
     default_1.prototype.sortFunc = function (index) {
@@ -57,9 +57,9 @@ var default_1 = /** @class */ (function (_super) {
     };
     default_1.prototype.createSort = function (data) {
         var newSort = [];
-        data.forEach(function (data) {
+        data.forEach(function (d) {
             // NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
-            newSort.push(data.id - data.id);
+            newSort.push(d.id - d.id);
         });
         return newSort;
     };

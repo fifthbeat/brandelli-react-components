@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 interface Props {
     /** Spit sort array out of component */
     action: (sort: number[]) => void;
@@ -6,6 +6,7 @@ interface Props {
     contentToSort: {
         id: number;
         label: string;
+        hideSort?: boolean;
     }[];
     /** Define the custom class name to give at component */
     customClass?: string | undefined;

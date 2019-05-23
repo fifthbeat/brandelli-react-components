@@ -1,5 +1,5 @@
-import "normalize.css";
-import * as React from "react";
+import 'normalize.css';
+import * as React from 'react';
 interface Props {
     /** Generate the content of the radio switcher. */
     content: {

@@ -5,9 +5,9 @@ var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cook
 };
 exports.__esModule = true;
 var styled_components_1 = require("styled-components");
-exports.SortableHeader = styled_components_1["default"].div.attrs({
-    className: function (props) { return props.customClass; }
-})(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: ", ";\n  border: 1px solid lightgray;\n  & > div {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding: 0 8px;\n    border-right: 1px solid lightgrey;\n    :last-of-type {\n      border: none;\n    }\n    & > span {\n      text-transform: uppercase;\n    }\n  }\n"], ["\n  display: grid;\n  grid-template-columns: ",
+exports.SortableHeader = styled_components_1["default"].div.attrs(function (props) { return ({
+    className: props.customClass
+}); })(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: grid;\n  grid-template-columns: ", ";\n  border: 1px solid lightgray;\n  & > div {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding: 0 8px;\n    border-right: 1px solid lightgrey;\n    :last-of-type {\n      border: none;\n    }\n    & > span {\n      text-transform: uppercase;\n    }\n  }\n"], ["\n  display: grid;\n  grid-template-columns: ",
     ";\n  border: 1px solid lightgray;\n  & > div {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding: 0 8px;\n    border-right: 1px solid lightgrey;\n    :last-of-type {\n      border: none;\n    }\n    & > span {\n      text-transform: uppercase;\n    }\n  }\n"])), function (props) {
     return "40% repeat(" + (props.contentToSort.length - 1) + ", 1fr)";
 });

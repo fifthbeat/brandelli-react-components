@@ -1,12 +1,12 @@
-import * as React from "react";
-import SortArrows from "./SortArrows";
-import {SortableHeader} from "./styles";
+import * as React from 'react';
+import SortArrows from './SortArrows';
+import {SortableHeader} from './styles';
 
 interface Props {
   /** Spit sort array out of component */
   action: (sort: number[]) => void;
   /** Define the column title */
-  contentToSort: { id: number; label: string }[];
+  contentToSort: {id: number; label: string; hideSort?: boolean}[];
   /** Define the custom class name to give at component */
   customClass?: string | undefined;
   /** Define the default sort order */
@@ -20,7 +20,7 @@ interface State {
 
 export default class extends React.Component<Props, State> {
   readonly state: State = {
-    sort: null
+    sort: null,
   };
 
   componentDidMount() {
@@ -33,16 +33,10 @@ export default class extends React.Component<Props, State> {
     }
   }
 
-  renderHeaderTitle(
-    data: object[],
-    sort: number[],
-    arrowColor: string
-  ): JSX.Element[] {
-    return data.map((d: any, index: number) => (
-      <div key={d.id} onClick={() => d.label !== "" && this.sortFunc(d.id - 1)}>
-        {d.label !== "" && (
-          <SortArrows sort={sort[d.id - 1]} arrowColor={arrowColor} />
-        )}
+  renderHeaderTitle(data: object[], sort: number[], arrowColor: string): JSX.Element[] {
+    return data.map((d: any) => (
+      <div key={d.id} onClick={() => d.label !== '' && d.hideSort !== true && this.sortFunc(d.id - 1)}>
+        {d.label !== '' && d.hideSort !== true && <SortArrows sort={sort[d.id - 1]} arrowColor={arrowColor} />}
         <span>{d.label}</span>
       </div>
     ));
@@ -57,18 +51,18 @@ export default class extends React.Component<Props, State> {
         newSort[index] += 1;
       }
       this.setState({
-        sort: newSort
+        sort: newSort,
       });
     }
     // NOTE: callback function
     this.props.action([...newSort]);
   }
 
-  createSort(data: { id: number; label: string }[]): number[] {
+  createSort(data: {id: number; label: string}[]): number[] {
     const newSort: number[] = [];
-    data.forEach((data: { id: number; label: string }) => {
+    data.forEach((d: {id: number; label: string}) => {
       // NOTE: In order to use forEach statement and have not compiling errors we use push(data.id - data.id) instead of push(0)
-      newSort.push(data.id - data.id);
+      newSort.push(d.id - d.id);
     });
     return newSort;
   }
@@ -80,11 +74,7 @@ export default class extends React.Component<Props, State> {
       return null;
     }
     return (
-      <SortableHeader
-        customClass={customClass}
-        contentToSort={contentToSort}
-        arrowColor={arrowColor}
-      >
+      <SortableHeader customClass={customClass} contentToSort={contentToSort} arrowColor={arrowColor}>
         {this.renderHeaderTitle(contentToSort, sort, arrowColor)}
       </SortableHeader>
     );
